@@ -19,8 +19,13 @@ import br.edu.ufrn.myhtml.htmlModel.References
  */
 class HtmlModelGenerator extends AbstractGenerator {
 
+	String filename
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('MyPage.html',  
+		filename = resource.getURI().segment(resource.getURI().segmentCount()-1).replace("myhtml", "html")
+		System.out.println(">>" + filename)
+		
+		fsa.generateFile(filename,  
 			resource.allContents
 				.filter(MyHtmlModel)
 				.map[compile]
@@ -42,7 +47,6 @@ class HtmlModelGenerator extends AbstractGenerator {
             «ENDIF»
 		  </body>
 		</html>
-			
 	'''
 	
 	private def compile(Section s) '''

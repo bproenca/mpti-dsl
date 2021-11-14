@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: br.edu.ufrn.myhtml.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: br.edu.ufrn.myhtml.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: br.edu.ufrn.myhtml.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: br.edu.ufrn.myhtml,
+ br.edu.ufrn.myhtml.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: br.edu.ufrn.myhtml.ui.quickfix,
+ br.edu.ufrn.myhtml.ui.contentassist,
+ br.edu.ufrn.myhtml.ui.internal
+Bundle-Activator: br.edu.ufrn.myhtml.ui.internal.MyhtmlActivator

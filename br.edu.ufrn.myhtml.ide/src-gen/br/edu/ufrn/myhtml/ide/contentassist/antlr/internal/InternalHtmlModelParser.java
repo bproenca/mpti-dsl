@@ -1,0 +1,4226 @@
+package br.edu.ufrn.myhtml.ide.contentassist.antlr.internal;
+
+import java.io.InputStream;
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.parser.*;
+import org.eclipse.xtext.parser.impl.*;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
+import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
+import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.DFA;
+import br.edu.ufrn.myhtml.services.HtmlModelGrammarAccess;
+
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class InternalHtmlModelParser extends AbstractInternalContentAssistParser {
+    public static final String[] tokenNames = new String[] {
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_HINT", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'black'", "'red'", "'blue'", "'green'", "'Article'", "'{'", "'}'", "'Section'", "'('", "'title'", "'='", "')'", "','", "'size'", "'Paragraph'", "'color'", "'References'", "'.'"
+    };
+    public static final int RULE_HINT=6;
+    public static final int RULE_STRING=5;
+    public static final int RULE_SL_COMMENT=9;
+    public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__12=12;
+    public static final int T__13=13;
+    public static final int T__14=14;
+    public static final int EOF=-1;
+    public static final int RULE_ID=4;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=7;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int RULE_ML_COMMENT=8;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+
+    // delegates
+    // delegators
+
+
+        public InternalHtmlModelParser(TokenStream input) {
+            this(input, new RecognizerSharedState());
+        }
+        public InternalHtmlModelParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
+        }
+        
+
+    public String[] getTokenNames() { return InternalHtmlModelParser.tokenNames; }
+    public String getGrammarFileName() { return "InternalHtmlModel.g"; }
+
+
+    	private HtmlModelGrammarAccess grammarAccess;
+
+    	public void setGrammarAccess(HtmlModelGrammarAccess grammarAccess) {
+    		this.grammarAccess = grammarAccess;
+    	}
+
+    	@Override
+    	protected Grammar getGrammar() {
+    		return grammarAccess.getGrammar();
+    	}
+
+    	@Override
+    	protected String getValueForTokenName(String tokenName) {
+    		return tokenName;
+    	}
+
+
+
+    // $ANTLR start "entryRuleMyHtmlModel"
+    // InternalHtmlModel.g:53:1: entryRuleMyHtmlModel : ruleMyHtmlModel EOF ;
+    public final void entryRuleMyHtmlModel() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:54:1: ( ruleMyHtmlModel EOF )
+            // InternalHtmlModel.g:55:1: ruleMyHtmlModel EOF
+            {
+             before(grammarAccess.getMyHtmlModelRule()); 
+            pushFollow(FOLLOW_1);
+            ruleMyHtmlModel();
+
+            state._fsp--;
+
+             after(grammarAccess.getMyHtmlModelRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleMyHtmlModel"
+
+
+    // $ANTLR start "ruleMyHtmlModel"
+    // InternalHtmlModel.g:62:1: ruleMyHtmlModel : ( ( rule__MyHtmlModel__ArticleAssignment ) ) ;
+    public final void ruleMyHtmlModel() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:66:2: ( ( ( rule__MyHtmlModel__ArticleAssignment ) ) )
+            // InternalHtmlModel.g:67:2: ( ( rule__MyHtmlModel__ArticleAssignment ) )
+            {
+            // InternalHtmlModel.g:67:2: ( ( rule__MyHtmlModel__ArticleAssignment ) )
+            // InternalHtmlModel.g:68:3: ( rule__MyHtmlModel__ArticleAssignment )
+            {
+             before(grammarAccess.getMyHtmlModelAccess().getArticleAssignment()); 
+            // InternalHtmlModel.g:69:3: ( rule__MyHtmlModel__ArticleAssignment )
+            // InternalHtmlModel.g:69:4: rule__MyHtmlModel__ArticleAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__MyHtmlModel__ArticleAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getMyHtmlModelAccess().getArticleAssignment()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleMyHtmlModel"
+
+
+    // $ANTLR start "entryRuleArticle"
+    // InternalHtmlModel.g:78:1: entryRuleArticle : ruleArticle EOF ;
+    public final void entryRuleArticle() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:79:1: ( ruleArticle EOF )
+            // InternalHtmlModel.g:80:1: ruleArticle EOF
+            {
+             before(grammarAccess.getArticleRule()); 
+            pushFollow(FOLLOW_1);
+            ruleArticle();
+
+            state._fsp--;
+
+             after(grammarAccess.getArticleRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleArticle"
+
+
+    // $ANTLR start "ruleArticle"
+    // InternalHtmlModel.g:87:1: ruleArticle : ( ( rule__Article__Group__0 ) ) ;
+    public final void ruleArticle() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:91:2: ( ( ( rule__Article__Group__0 ) ) )
+            // InternalHtmlModel.g:92:2: ( ( rule__Article__Group__0 ) )
+            {
+            // InternalHtmlModel.g:92:2: ( ( rule__Article__Group__0 ) )
+            // InternalHtmlModel.g:93:3: ( rule__Article__Group__0 )
+            {
+             before(grammarAccess.getArticleAccess().getGroup()); 
+            // InternalHtmlModel.g:94:3: ( rule__Article__Group__0 )
+            // InternalHtmlModel.g:94:4: rule__Article__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getArticleAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleArticle"
+
+
+    // $ANTLR start "entryRuleSection"
+    // InternalHtmlModel.g:103:1: entryRuleSection : ruleSection EOF ;
+    public final void entryRuleSection() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:104:1: ( ruleSection EOF )
+            // InternalHtmlModel.g:105:1: ruleSection EOF
+            {
+             before(grammarAccess.getSectionRule()); 
+            pushFollow(FOLLOW_1);
+            ruleSection();
+
+            state._fsp--;
+
+             after(grammarAccess.getSectionRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleSection"
+
+
+    // $ANTLR start "ruleSection"
+    // InternalHtmlModel.g:112:1: ruleSection : ( ( rule__Section__Group__0 ) ) ;
+    public final void ruleSection() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:116:2: ( ( ( rule__Section__Group__0 ) ) )
+            // InternalHtmlModel.g:117:2: ( ( rule__Section__Group__0 ) )
+            {
+            // InternalHtmlModel.g:117:2: ( ( rule__Section__Group__0 ) )
+            // InternalHtmlModel.g:118:3: ( rule__Section__Group__0 )
+            {
+             before(grammarAccess.getSectionAccess().getGroup()); 
+            // InternalHtmlModel.g:119:3: ( rule__Section__Group__0 )
+            // InternalHtmlModel.g:119:4: rule__Section__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSectionAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleSection"
+
+
+    // $ANTLR start "entryRuleParagraph"
+    // InternalHtmlModel.g:128:1: entryRuleParagraph : ruleParagraph EOF ;
+    public final void entryRuleParagraph() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:129:1: ( ruleParagraph EOF )
+            // InternalHtmlModel.g:130:1: ruleParagraph EOF
+            {
+             before(grammarAccess.getParagraphRule()); 
+            pushFollow(FOLLOW_1);
+            ruleParagraph();
+
+            state._fsp--;
+
+             after(grammarAccess.getParagraphRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleParagraph"
+
+
+    // $ANTLR start "ruleParagraph"
+    // InternalHtmlModel.g:137:1: ruleParagraph : ( ( rule__Paragraph__Group__0 ) ) ;
+    public final void ruleParagraph() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:141:2: ( ( ( rule__Paragraph__Group__0 ) ) )
+            // InternalHtmlModel.g:142:2: ( ( rule__Paragraph__Group__0 ) )
+            {
+            // InternalHtmlModel.g:142:2: ( ( rule__Paragraph__Group__0 ) )
+            // InternalHtmlModel.g:143:3: ( rule__Paragraph__Group__0 )
+            {
+             before(grammarAccess.getParagraphAccess().getGroup()); 
+            // InternalHtmlModel.g:144:3: ( rule__Paragraph__Group__0 )
+            // InternalHtmlModel.g:144:4: rule__Paragraph__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getParagraphAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleParagraph"
+
+
+    // $ANTLR start "entryRuleReferences"
+    // InternalHtmlModel.g:153:1: entryRuleReferences : ruleReferences EOF ;
+    public final void entryRuleReferences() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:154:1: ( ruleReferences EOF )
+            // InternalHtmlModel.g:155:1: ruleReferences EOF
+            {
+             before(grammarAccess.getReferencesRule()); 
+            pushFollow(FOLLOW_1);
+            ruleReferences();
+
+            state._fsp--;
+
+             after(grammarAccess.getReferencesRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleReferences"
+
+
+    // $ANTLR start "ruleReferences"
+    // InternalHtmlModel.g:162:1: ruleReferences : ( ( rule__References__Group__0 ) ) ;
+    public final void ruleReferences() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:166:2: ( ( ( rule__References__Group__0 ) ) )
+            // InternalHtmlModel.g:167:2: ( ( rule__References__Group__0 ) )
+            {
+            // InternalHtmlModel.g:167:2: ( ( rule__References__Group__0 ) )
+            // InternalHtmlModel.g:168:3: ( rule__References__Group__0 )
+            {
+             before(grammarAccess.getReferencesAccess().getGroup()); 
+            // InternalHtmlModel.g:169:3: ( rule__References__Group__0 )
+            // InternalHtmlModel.g:169:4: rule__References__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__References__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getReferencesAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleReferences"
+
+
+    // $ANTLR start "entryRuleLink"
+    // InternalHtmlModel.g:178:1: entryRuleLink : ruleLink EOF ;
+    public final void entryRuleLink() throws RecognitionException {
+        try {
+            // InternalHtmlModel.g:179:1: ( ruleLink EOF )
+            // InternalHtmlModel.g:180:1: ruleLink EOF
+            {
+             before(grammarAccess.getLinkRule()); 
+            pushFollow(FOLLOW_1);
+            ruleLink();
+
+            state._fsp--;
+
+             after(grammarAccess.getLinkRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleLink"
+
+
+    // $ANTLR start "ruleLink"
+    // InternalHtmlModel.g:187:1: ruleLink : ( ( rule__Link__Group__0 ) ) ;
+    public final void ruleLink() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:191:2: ( ( ( rule__Link__Group__0 ) ) )
+            // InternalHtmlModel.g:192:2: ( ( rule__Link__Group__0 ) )
+            {
+            // InternalHtmlModel.g:192:2: ( ( rule__Link__Group__0 ) )
+            // InternalHtmlModel.g:193:3: ( rule__Link__Group__0 )
+            {
+             before(grammarAccess.getLinkAccess().getGroup()); 
+            // InternalHtmlModel.g:194:3: ( rule__Link__Group__0 )
+            // InternalHtmlModel.g:194:4: rule__Link__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Link__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getLinkAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleLink"
+
+
+    // $ANTLR start "ruleBasicColors"
+    // InternalHtmlModel.g:203:1: ruleBasicColors : ( ( rule__BasicColors__Alternatives ) ) ;
+    public final void ruleBasicColors() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:207:1: ( ( ( rule__BasicColors__Alternatives ) ) )
+            // InternalHtmlModel.g:208:2: ( ( rule__BasicColors__Alternatives ) )
+            {
+            // InternalHtmlModel.g:208:2: ( ( rule__BasicColors__Alternatives ) )
+            // InternalHtmlModel.g:209:3: ( rule__BasicColors__Alternatives )
+            {
+             before(grammarAccess.getBasicColorsAccess().getAlternatives()); 
+            // InternalHtmlModel.g:210:3: ( rule__BasicColors__Alternatives )
+            // InternalHtmlModel.g:210:4: rule__BasicColors__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__BasicColors__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getBasicColorsAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleBasicColors"
+
+
+    // $ANTLR start "rule__BasicColors__Alternatives"
+    // InternalHtmlModel.g:218:1: rule__BasicColors__Alternatives : ( ( ( 'black' ) ) | ( ( 'red' ) ) | ( ( 'blue' ) ) | ( ( 'green' ) ) );
+    public final void rule__BasicColors__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:222:1: ( ( ( 'black' ) ) | ( ( 'red' ) ) | ( ( 'blue' ) ) | ( ( 'green' ) ) )
+            int alt1=4;
+            switch ( input.LA(1) ) {
+            case 12:
+                {
+                alt1=1;
+                }
+                break;
+            case 13:
+                {
+                alt1=2;
+                }
+                break;
+            case 14:
+                {
+                alt1=3;
+                }
+                break;
+            case 15:
+                {
+                alt1=4;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 1, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt1) {
+                case 1 :
+                    // InternalHtmlModel.g:223:2: ( ( 'black' ) )
+                    {
+                    // InternalHtmlModel.g:223:2: ( ( 'black' ) )
+                    // InternalHtmlModel.g:224:3: ( 'black' )
+                    {
+                     before(grammarAccess.getBasicColorsAccess().getBlackEnumLiteralDeclaration_0()); 
+                    // InternalHtmlModel.g:225:3: ( 'black' )
+                    // InternalHtmlModel.g:225:4: 'black'
+                    {
+                    match(input,12,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getBasicColorsAccess().getBlackEnumLiteralDeclaration_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalHtmlModel.g:229:2: ( ( 'red' ) )
+                    {
+                    // InternalHtmlModel.g:229:2: ( ( 'red' ) )
+                    // InternalHtmlModel.g:230:3: ( 'red' )
+                    {
+                     before(grammarAccess.getBasicColorsAccess().getRedEnumLiteralDeclaration_1()); 
+                    // InternalHtmlModel.g:231:3: ( 'red' )
+                    // InternalHtmlModel.g:231:4: 'red'
+                    {
+                    match(input,13,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getBasicColorsAccess().getRedEnumLiteralDeclaration_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalHtmlModel.g:235:2: ( ( 'blue' ) )
+                    {
+                    // InternalHtmlModel.g:235:2: ( ( 'blue' ) )
+                    // InternalHtmlModel.g:236:3: ( 'blue' )
+                    {
+                     before(grammarAccess.getBasicColorsAccess().getBlueEnumLiteralDeclaration_2()); 
+                    // InternalHtmlModel.g:237:3: ( 'blue' )
+                    // InternalHtmlModel.g:237:4: 'blue'
+                    {
+                    match(input,14,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getBasicColorsAccess().getBlueEnumLiteralDeclaration_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalHtmlModel.g:241:2: ( ( 'green' ) )
+                    {
+                    // InternalHtmlModel.g:241:2: ( ( 'green' ) )
+                    // InternalHtmlModel.g:242:3: ( 'green' )
+                    {
+                     before(grammarAccess.getBasicColorsAccess().getGreenEnumLiteralDeclaration_3()); 
+                    // InternalHtmlModel.g:243:3: ( 'green' )
+                    // InternalHtmlModel.g:243:4: 'green'
+                    {
+                    match(input,15,FOLLOW_2); 
+
+                    }
+
+                     after(grammarAccess.getBasicColorsAccess().getGreenEnumLiteralDeclaration_3()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__BasicColors__Alternatives"
+
+
+    // $ANTLR start "rule__Article__Group__0"
+    // InternalHtmlModel.g:251:1: rule__Article__Group__0 : rule__Article__Group__0__Impl rule__Article__Group__1 ;
+    public final void rule__Article__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:255:1: ( rule__Article__Group__0__Impl rule__Article__Group__1 )
+            // InternalHtmlModel.g:256:2: rule__Article__Group__0__Impl rule__Article__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__Article__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__0"
+
+
+    // $ANTLR start "rule__Article__Group__0__Impl"
+    // InternalHtmlModel.g:263:1: rule__Article__Group__0__Impl : ( () ) ;
+    public final void rule__Article__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:267:1: ( ( () ) )
+            // InternalHtmlModel.g:268:1: ( () )
+            {
+            // InternalHtmlModel.g:268:1: ( () )
+            // InternalHtmlModel.g:269:2: ()
+            {
+             before(grammarAccess.getArticleAccess().getArticleAction_0()); 
+            // InternalHtmlModel.g:270:2: ()
+            // InternalHtmlModel.g:270:3: 
+            {
+            }
+
+             after(grammarAccess.getArticleAccess().getArticleAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Article__Group__1"
+    // InternalHtmlModel.g:278:1: rule__Article__Group__1 : rule__Article__Group__1__Impl rule__Article__Group__2 ;
+    public final void rule__Article__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:282:1: ( rule__Article__Group__1__Impl rule__Article__Group__2 )
+            // InternalHtmlModel.g:283:2: rule__Article__Group__1__Impl rule__Article__Group__2
+            {
+            pushFollow(FOLLOW_4);
+            rule__Article__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__1"
+
+
+    // $ANTLR start "rule__Article__Group__1__Impl"
+    // InternalHtmlModel.g:290:1: rule__Article__Group__1__Impl : ( 'Article' ) ;
+    public final void rule__Article__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:294:1: ( ( 'Article' ) )
+            // InternalHtmlModel.g:295:1: ( 'Article' )
+            {
+            // InternalHtmlModel.g:295:1: ( 'Article' )
+            // InternalHtmlModel.g:296:2: 'Article'
+            {
+             before(grammarAccess.getArticleAccess().getArticleKeyword_1()); 
+            match(input,16,FOLLOW_2); 
+             after(grammarAccess.getArticleAccess().getArticleKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Article__Group__2"
+    // InternalHtmlModel.g:305:1: rule__Article__Group__2 : rule__Article__Group__2__Impl rule__Article__Group__3 ;
+    public final void rule__Article__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:309:1: ( rule__Article__Group__2__Impl rule__Article__Group__3 )
+            // InternalHtmlModel.g:310:2: rule__Article__Group__2__Impl rule__Article__Group__3
+            {
+            pushFollow(FOLLOW_5);
+            rule__Article__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__2"
+
+
+    // $ANTLR start "rule__Article__Group__2__Impl"
+    // InternalHtmlModel.g:317:1: rule__Article__Group__2__Impl : ( '{' ) ;
+    public final void rule__Article__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:321:1: ( ( '{' ) )
+            // InternalHtmlModel.g:322:1: ( '{' )
+            {
+            // InternalHtmlModel.g:322:1: ( '{' )
+            // InternalHtmlModel.g:323:2: '{'
+            {
+             before(grammarAccess.getArticleAccess().getLeftCurlyBracketKeyword_2()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getArticleAccess().getLeftCurlyBracketKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Article__Group__3"
+    // InternalHtmlModel.g:332:1: rule__Article__Group__3 : rule__Article__Group__3__Impl rule__Article__Group__4 ;
+    public final void rule__Article__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:336:1: ( rule__Article__Group__3__Impl rule__Article__Group__4 )
+            // InternalHtmlModel.g:337:2: rule__Article__Group__3__Impl rule__Article__Group__4
+            {
+            pushFollow(FOLLOW_5);
+            rule__Article__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__3"
+
+
+    // $ANTLR start "rule__Article__Group__3__Impl"
+    // InternalHtmlModel.g:344:1: rule__Article__Group__3__Impl : ( ( rule__Article__SectionsAssignment_3 )* ) ;
+    public final void rule__Article__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:348:1: ( ( ( rule__Article__SectionsAssignment_3 )* ) )
+            // InternalHtmlModel.g:349:1: ( ( rule__Article__SectionsAssignment_3 )* )
+            {
+            // InternalHtmlModel.g:349:1: ( ( rule__Article__SectionsAssignment_3 )* )
+            // InternalHtmlModel.g:350:2: ( rule__Article__SectionsAssignment_3 )*
+            {
+             before(grammarAccess.getArticleAccess().getSectionsAssignment_3()); 
+            // InternalHtmlModel.g:351:2: ( rule__Article__SectionsAssignment_3 )*
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( (LA2_0==19) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // InternalHtmlModel.g:351:3: rule__Article__SectionsAssignment_3
+            	    {
+            	    pushFollow(FOLLOW_6);
+            	    rule__Article__SectionsAssignment_3();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
+
+             after(grammarAccess.getArticleAccess().getSectionsAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__3__Impl"
+
+
+    // $ANTLR start "rule__Article__Group__4"
+    // InternalHtmlModel.g:359:1: rule__Article__Group__4 : rule__Article__Group__4__Impl rule__Article__Group__5 ;
+    public final void rule__Article__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:363:1: ( rule__Article__Group__4__Impl rule__Article__Group__5 )
+            // InternalHtmlModel.g:364:2: rule__Article__Group__4__Impl rule__Article__Group__5
+            {
+            pushFollow(FOLLOW_5);
+            rule__Article__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__4"
+
+
+    // $ANTLR start "rule__Article__Group__4__Impl"
+    // InternalHtmlModel.g:371:1: rule__Article__Group__4__Impl : ( ( rule__Article__ReferencesAssignment_4 )? ) ;
+    public final void rule__Article__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:375:1: ( ( ( rule__Article__ReferencesAssignment_4 )? ) )
+            // InternalHtmlModel.g:376:1: ( ( rule__Article__ReferencesAssignment_4 )? )
+            {
+            // InternalHtmlModel.g:376:1: ( ( rule__Article__ReferencesAssignment_4 )? )
+            // InternalHtmlModel.g:377:2: ( rule__Article__ReferencesAssignment_4 )?
+            {
+             before(grammarAccess.getArticleAccess().getReferencesAssignment_4()); 
+            // InternalHtmlModel.g:378:2: ( rule__Article__ReferencesAssignment_4 )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
+
+            if ( (LA3_0==28) ) {
+                alt3=1;
+            }
+            switch (alt3) {
+                case 1 :
+                    // InternalHtmlModel.g:378:3: rule__Article__ReferencesAssignment_4
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Article__ReferencesAssignment_4();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getArticleAccess().getReferencesAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Article__Group__5"
+    // InternalHtmlModel.g:386:1: rule__Article__Group__5 : rule__Article__Group__5__Impl ;
+    public final void rule__Article__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:390:1: ( rule__Article__Group__5__Impl )
+            // InternalHtmlModel.g:391:2: rule__Article__Group__5__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Article__Group__5__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__5"
+
+
+    // $ANTLR start "rule__Article__Group__5__Impl"
+    // InternalHtmlModel.g:397:1: rule__Article__Group__5__Impl : ( '}' ) ;
+    public final void rule__Article__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:401:1: ( ( '}' ) )
+            // InternalHtmlModel.g:402:1: ( '}' )
+            {
+            // InternalHtmlModel.g:402:1: ( '}' )
+            // InternalHtmlModel.g:403:2: '}'
+            {
+             before(grammarAccess.getArticleAccess().getRightCurlyBracketKeyword_5()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getArticleAccess().getRightCurlyBracketKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__Group__5__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__0"
+    // InternalHtmlModel.g:413:1: rule__Section__Group__0 : rule__Section__Group__0__Impl rule__Section__Group__1 ;
+    public final void rule__Section__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:417:1: ( rule__Section__Group__0__Impl rule__Section__Group__1 )
+            // InternalHtmlModel.g:418:2: rule__Section__Group__0__Impl rule__Section__Group__1
+            {
+            pushFollow(FOLLOW_7);
+            rule__Section__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__0"
+
+
+    // $ANTLR start "rule__Section__Group__0__Impl"
+    // InternalHtmlModel.g:425:1: rule__Section__Group__0__Impl : ( 'Section' ) ;
+    public final void rule__Section__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:429:1: ( ( 'Section' ) )
+            // InternalHtmlModel.g:430:1: ( 'Section' )
+            {
+            // InternalHtmlModel.g:430:1: ( 'Section' )
+            // InternalHtmlModel.g:431:2: 'Section'
+            {
+             before(grammarAccess.getSectionAccess().getSectionKeyword_0()); 
+            match(input,19,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getSectionKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__1"
+    // InternalHtmlModel.g:440:1: rule__Section__Group__1 : rule__Section__Group__1__Impl rule__Section__Group__2 ;
+    public final void rule__Section__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:444:1: ( rule__Section__Group__1__Impl rule__Section__Group__2 )
+            // InternalHtmlModel.g:445:2: rule__Section__Group__1__Impl rule__Section__Group__2
+            {
+            pushFollow(FOLLOW_8);
+            rule__Section__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__1"
+
+
+    // $ANTLR start "rule__Section__Group__1__Impl"
+    // InternalHtmlModel.g:452:1: rule__Section__Group__1__Impl : ( '(' ) ;
+    public final void rule__Section__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:456:1: ( ( '(' ) )
+            // InternalHtmlModel.g:457:1: ( '(' )
+            {
+            // InternalHtmlModel.g:457:1: ( '(' )
+            // InternalHtmlModel.g:458:2: '('
+            {
+             before(grammarAccess.getSectionAccess().getLeftParenthesisKeyword_1()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getLeftParenthesisKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__2"
+    // InternalHtmlModel.g:467:1: rule__Section__Group__2 : rule__Section__Group__2__Impl rule__Section__Group__3 ;
+    public final void rule__Section__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:471:1: ( rule__Section__Group__2__Impl rule__Section__Group__3 )
+            // InternalHtmlModel.g:472:2: rule__Section__Group__2__Impl rule__Section__Group__3
+            {
+            pushFollow(FOLLOW_9);
+            rule__Section__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__2"
+
+
+    // $ANTLR start "rule__Section__Group__2__Impl"
+    // InternalHtmlModel.g:479:1: rule__Section__Group__2__Impl : ( 'title' ) ;
+    public final void rule__Section__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:483:1: ( ( 'title' ) )
+            // InternalHtmlModel.g:484:1: ( 'title' )
+            {
+            // InternalHtmlModel.g:484:1: ( 'title' )
+            // InternalHtmlModel.g:485:2: 'title'
+            {
+             before(grammarAccess.getSectionAccess().getTitleKeyword_2()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getTitleKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__3"
+    // InternalHtmlModel.g:494:1: rule__Section__Group__3 : rule__Section__Group__3__Impl rule__Section__Group__4 ;
+    public final void rule__Section__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:498:1: ( rule__Section__Group__3__Impl rule__Section__Group__4 )
+            // InternalHtmlModel.g:499:2: rule__Section__Group__3__Impl rule__Section__Group__4
+            {
+            pushFollow(FOLLOW_10);
+            rule__Section__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__3"
+
+
+    // $ANTLR start "rule__Section__Group__3__Impl"
+    // InternalHtmlModel.g:506:1: rule__Section__Group__3__Impl : ( '=' ) ;
+    public final void rule__Section__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:510:1: ( ( '=' ) )
+            // InternalHtmlModel.g:511:1: ( '=' )
+            {
+            // InternalHtmlModel.g:511:1: ( '=' )
+            // InternalHtmlModel.g:512:2: '='
+            {
+             before(grammarAccess.getSectionAccess().getEqualsSignKeyword_3()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getEqualsSignKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__3__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__4"
+    // InternalHtmlModel.g:521:1: rule__Section__Group__4 : rule__Section__Group__4__Impl rule__Section__Group__5 ;
+    public final void rule__Section__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:525:1: ( rule__Section__Group__4__Impl rule__Section__Group__5 )
+            // InternalHtmlModel.g:526:2: rule__Section__Group__4__Impl rule__Section__Group__5
+            {
+            pushFollow(FOLLOW_11);
+            rule__Section__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__4"
+
+
+    // $ANTLR start "rule__Section__Group__4__Impl"
+    // InternalHtmlModel.g:533:1: rule__Section__Group__4__Impl : ( ( rule__Section__TitleAssignment_4 ) ) ;
+    public final void rule__Section__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:537:1: ( ( ( rule__Section__TitleAssignment_4 ) ) )
+            // InternalHtmlModel.g:538:1: ( ( rule__Section__TitleAssignment_4 ) )
+            {
+            // InternalHtmlModel.g:538:1: ( ( rule__Section__TitleAssignment_4 ) )
+            // InternalHtmlModel.g:539:2: ( rule__Section__TitleAssignment_4 )
+            {
+             before(grammarAccess.getSectionAccess().getTitleAssignment_4()); 
+            // InternalHtmlModel.g:540:2: ( rule__Section__TitleAssignment_4 )
+            // InternalHtmlModel.g:540:3: rule__Section__TitleAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__Section__TitleAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSectionAccess().getTitleAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__5"
+    // InternalHtmlModel.g:548:1: rule__Section__Group__5 : rule__Section__Group__5__Impl rule__Section__Group__6 ;
+    public final void rule__Section__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:552:1: ( rule__Section__Group__5__Impl rule__Section__Group__6 )
+            // InternalHtmlModel.g:553:2: rule__Section__Group__5__Impl rule__Section__Group__6
+            {
+            pushFollow(FOLLOW_11);
+            rule__Section__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__5"
+
+
+    // $ANTLR start "rule__Section__Group__5__Impl"
+    // InternalHtmlModel.g:560:1: rule__Section__Group__5__Impl : ( ( rule__Section__Group_5__0 )? ) ;
+    public final void rule__Section__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:564:1: ( ( ( rule__Section__Group_5__0 )? ) )
+            // InternalHtmlModel.g:565:1: ( ( rule__Section__Group_5__0 )? )
+            {
+            // InternalHtmlModel.g:565:1: ( ( rule__Section__Group_5__0 )? )
+            // InternalHtmlModel.g:566:2: ( rule__Section__Group_5__0 )?
+            {
+             before(grammarAccess.getSectionAccess().getGroup_5()); 
+            // InternalHtmlModel.g:567:2: ( rule__Section__Group_5__0 )?
+            int alt4=2;
+            int LA4_0 = input.LA(1);
+
+            if ( (LA4_0==24) ) {
+                alt4=1;
+            }
+            switch (alt4) {
+                case 1 :
+                    // InternalHtmlModel.g:567:3: rule__Section__Group_5__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Section__Group_5__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getSectionAccess().getGroup_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__5__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__6"
+    // InternalHtmlModel.g:575:1: rule__Section__Group__6 : rule__Section__Group__6__Impl rule__Section__Group__7 ;
+    public final void rule__Section__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:579:1: ( rule__Section__Group__6__Impl rule__Section__Group__7 )
+            // InternalHtmlModel.g:580:2: rule__Section__Group__6__Impl rule__Section__Group__7
+            {
+            pushFollow(FOLLOW_4);
+            rule__Section__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__6"
+
+
+    // $ANTLR start "rule__Section__Group__6__Impl"
+    // InternalHtmlModel.g:587:1: rule__Section__Group__6__Impl : ( ')' ) ;
+    public final void rule__Section__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:591:1: ( ( ')' ) )
+            // InternalHtmlModel.g:592:1: ( ')' )
+            {
+            // InternalHtmlModel.g:592:1: ( ')' )
+            // InternalHtmlModel.g:593:2: ')'
+            {
+             before(grammarAccess.getSectionAccess().getRightParenthesisKeyword_6()); 
+            match(input,23,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getRightParenthesisKeyword_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__6__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__7"
+    // InternalHtmlModel.g:602:1: rule__Section__Group__7 : rule__Section__Group__7__Impl rule__Section__Group__8 ;
+    public final void rule__Section__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:606:1: ( rule__Section__Group__7__Impl rule__Section__Group__8 )
+            // InternalHtmlModel.g:607:2: rule__Section__Group__7__Impl rule__Section__Group__8
+            {
+            pushFollow(FOLLOW_12);
+            rule__Section__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__7"
+
+
+    // $ANTLR start "rule__Section__Group__7__Impl"
+    // InternalHtmlModel.g:614:1: rule__Section__Group__7__Impl : ( '{' ) ;
+    public final void rule__Section__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:618:1: ( ( '{' ) )
+            // InternalHtmlModel.g:619:1: ( '{' )
+            {
+            // InternalHtmlModel.g:619:1: ( '{' )
+            // InternalHtmlModel.g:620:2: '{'
+            {
+             before(grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_7()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__7__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__8"
+    // InternalHtmlModel.g:629:1: rule__Section__Group__8 : rule__Section__Group__8__Impl rule__Section__Group__9 ;
+    public final void rule__Section__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:633:1: ( rule__Section__Group__8__Impl rule__Section__Group__9 )
+            // InternalHtmlModel.g:634:2: rule__Section__Group__8__Impl rule__Section__Group__9
+            {
+            pushFollow(FOLLOW_12);
+            rule__Section__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__8"
+
+
+    // $ANTLR start "rule__Section__Group__8__Impl"
+    // InternalHtmlModel.g:641:1: rule__Section__Group__8__Impl : ( ( rule__Section__ParagraphsAssignment_8 )* ) ;
+    public final void rule__Section__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:645:1: ( ( ( rule__Section__ParagraphsAssignment_8 )* ) )
+            // InternalHtmlModel.g:646:1: ( ( rule__Section__ParagraphsAssignment_8 )* )
+            {
+            // InternalHtmlModel.g:646:1: ( ( rule__Section__ParagraphsAssignment_8 )* )
+            // InternalHtmlModel.g:647:2: ( rule__Section__ParagraphsAssignment_8 )*
+            {
+             before(grammarAccess.getSectionAccess().getParagraphsAssignment_8()); 
+            // InternalHtmlModel.g:648:2: ( rule__Section__ParagraphsAssignment_8 )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( (LA5_0==26) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // InternalHtmlModel.g:648:3: rule__Section__ParagraphsAssignment_8
+            	    {
+            	    pushFollow(FOLLOW_13);
+            	    rule__Section__ParagraphsAssignment_8();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+             after(grammarAccess.getSectionAccess().getParagraphsAssignment_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__8__Impl"
+
+
+    // $ANTLR start "rule__Section__Group__9"
+    // InternalHtmlModel.g:656:1: rule__Section__Group__9 : rule__Section__Group__9__Impl ;
+    public final void rule__Section__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:660:1: ( rule__Section__Group__9__Impl )
+            // InternalHtmlModel.g:661:2: rule__Section__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Section__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__9"
+
+
+    // $ANTLR start "rule__Section__Group__9__Impl"
+    // InternalHtmlModel.g:667:1: rule__Section__Group__9__Impl : ( '}' ) ;
+    public final void rule__Section__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:671:1: ( ( '}' ) )
+            // InternalHtmlModel.g:672:1: ( '}' )
+            {
+            // InternalHtmlModel.g:672:1: ( '}' )
+            // InternalHtmlModel.g:673:2: '}'
+            {
+             before(grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_9()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group__9__Impl"
+
+
+    // $ANTLR start "rule__Section__Group_5__0"
+    // InternalHtmlModel.g:683:1: rule__Section__Group_5__0 : rule__Section__Group_5__0__Impl rule__Section__Group_5__1 ;
+    public final void rule__Section__Group_5__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:687:1: ( rule__Section__Group_5__0__Impl rule__Section__Group_5__1 )
+            // InternalHtmlModel.g:688:2: rule__Section__Group_5__0__Impl rule__Section__Group_5__1
+            {
+            pushFollow(FOLLOW_14);
+            rule__Section__Group_5__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group_5__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__0"
+
+
+    // $ANTLR start "rule__Section__Group_5__0__Impl"
+    // InternalHtmlModel.g:695:1: rule__Section__Group_5__0__Impl : ( ',' ) ;
+    public final void rule__Section__Group_5__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:699:1: ( ( ',' ) )
+            // InternalHtmlModel.g:700:1: ( ',' )
+            {
+            // InternalHtmlModel.g:700:1: ( ',' )
+            // InternalHtmlModel.g:701:2: ','
+            {
+             before(grammarAccess.getSectionAccess().getCommaKeyword_5_0()); 
+            match(input,24,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getCommaKeyword_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__0__Impl"
+
+
+    // $ANTLR start "rule__Section__Group_5__1"
+    // InternalHtmlModel.g:710:1: rule__Section__Group_5__1 : rule__Section__Group_5__1__Impl rule__Section__Group_5__2 ;
+    public final void rule__Section__Group_5__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:714:1: ( rule__Section__Group_5__1__Impl rule__Section__Group_5__2 )
+            // InternalHtmlModel.g:715:2: rule__Section__Group_5__1__Impl rule__Section__Group_5__2
+            {
+            pushFollow(FOLLOW_9);
+            rule__Section__Group_5__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group_5__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__1"
+
+
+    // $ANTLR start "rule__Section__Group_5__1__Impl"
+    // InternalHtmlModel.g:722:1: rule__Section__Group_5__1__Impl : ( 'size' ) ;
+    public final void rule__Section__Group_5__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:726:1: ( ( 'size' ) )
+            // InternalHtmlModel.g:727:1: ( 'size' )
+            {
+            // InternalHtmlModel.g:727:1: ( 'size' )
+            // InternalHtmlModel.g:728:2: 'size'
+            {
+             before(grammarAccess.getSectionAccess().getSizeKeyword_5_1()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getSizeKeyword_5_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__1__Impl"
+
+
+    // $ANTLR start "rule__Section__Group_5__2"
+    // InternalHtmlModel.g:737:1: rule__Section__Group_5__2 : rule__Section__Group_5__2__Impl rule__Section__Group_5__3 ;
+    public final void rule__Section__Group_5__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:741:1: ( rule__Section__Group_5__2__Impl rule__Section__Group_5__3 )
+            // InternalHtmlModel.g:742:2: rule__Section__Group_5__2__Impl rule__Section__Group_5__3
+            {
+            pushFollow(FOLLOW_15);
+            rule__Section__Group_5__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Section__Group_5__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__2"
+
+
+    // $ANTLR start "rule__Section__Group_5__2__Impl"
+    // InternalHtmlModel.g:749:1: rule__Section__Group_5__2__Impl : ( '=' ) ;
+    public final void rule__Section__Group_5__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:753:1: ( ( '=' ) )
+            // InternalHtmlModel.g:754:1: ( '=' )
+            {
+            // InternalHtmlModel.g:754:1: ( '=' )
+            // InternalHtmlModel.g:755:2: '='
+            {
+             before(grammarAccess.getSectionAccess().getEqualsSignKeyword_5_2()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getEqualsSignKeyword_5_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__2__Impl"
+
+
+    // $ANTLR start "rule__Section__Group_5__3"
+    // InternalHtmlModel.g:764:1: rule__Section__Group_5__3 : rule__Section__Group_5__3__Impl ;
+    public final void rule__Section__Group_5__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:768:1: ( rule__Section__Group_5__3__Impl )
+            // InternalHtmlModel.g:769:2: rule__Section__Group_5__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Section__Group_5__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__3"
+
+
+    // $ANTLR start "rule__Section__Group_5__3__Impl"
+    // InternalHtmlModel.g:775:1: rule__Section__Group_5__3__Impl : ( ( rule__Section__SizeAssignment_5_3 ) ) ;
+    public final void rule__Section__Group_5__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:779:1: ( ( ( rule__Section__SizeAssignment_5_3 ) ) )
+            // InternalHtmlModel.g:780:1: ( ( rule__Section__SizeAssignment_5_3 ) )
+            {
+            // InternalHtmlModel.g:780:1: ( ( rule__Section__SizeAssignment_5_3 ) )
+            // InternalHtmlModel.g:781:2: ( rule__Section__SizeAssignment_5_3 )
+            {
+             before(grammarAccess.getSectionAccess().getSizeAssignment_5_3()); 
+            // InternalHtmlModel.g:782:2: ( rule__Section__SizeAssignment_5_3 )
+            // InternalHtmlModel.g:782:3: rule__Section__SizeAssignment_5_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Section__SizeAssignment_5_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSectionAccess().getSizeAssignment_5_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__Group_5__3__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group__0"
+    // InternalHtmlModel.g:791:1: rule__Paragraph__Group__0 : rule__Paragraph__Group__0__Impl rule__Paragraph__Group__1 ;
+    public final void rule__Paragraph__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:795:1: ( rule__Paragraph__Group__0__Impl rule__Paragraph__Group__1 )
+            // InternalHtmlModel.g:796:2: rule__Paragraph__Group__0__Impl rule__Paragraph__Group__1
+            {
+            pushFollow(FOLLOW_16);
+            rule__Paragraph__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__0"
+
+
+    // $ANTLR start "rule__Paragraph__Group__0__Impl"
+    // InternalHtmlModel.g:803:1: rule__Paragraph__Group__0__Impl : ( 'Paragraph' ) ;
+    public final void rule__Paragraph__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:807:1: ( ( 'Paragraph' ) )
+            // InternalHtmlModel.g:808:1: ( 'Paragraph' )
+            {
+            // InternalHtmlModel.g:808:1: ( 'Paragraph' )
+            // InternalHtmlModel.g:809:2: 'Paragraph'
+            {
+             before(grammarAccess.getParagraphAccess().getParagraphKeyword_0()); 
+            match(input,26,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getParagraphKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group__1"
+    // InternalHtmlModel.g:818:1: rule__Paragraph__Group__1 : rule__Paragraph__Group__1__Impl rule__Paragraph__Group__2 ;
+    public final void rule__Paragraph__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:822:1: ( rule__Paragraph__Group__1__Impl rule__Paragraph__Group__2 )
+            // InternalHtmlModel.g:823:2: rule__Paragraph__Group__1__Impl rule__Paragraph__Group__2
+            {
+            pushFollow(FOLLOW_16);
+            rule__Paragraph__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__1"
+
+
+    // $ANTLR start "rule__Paragraph__Group__1__Impl"
+    // InternalHtmlModel.g:830:1: rule__Paragraph__Group__1__Impl : ( ( rule__Paragraph__Group_1__0 )? ) ;
+    public final void rule__Paragraph__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:834:1: ( ( ( rule__Paragraph__Group_1__0 )? ) )
+            // InternalHtmlModel.g:835:1: ( ( rule__Paragraph__Group_1__0 )? )
+            {
+            // InternalHtmlModel.g:835:1: ( ( rule__Paragraph__Group_1__0 )? )
+            // InternalHtmlModel.g:836:2: ( rule__Paragraph__Group_1__0 )?
+            {
+             before(grammarAccess.getParagraphAccess().getGroup_1()); 
+            // InternalHtmlModel.g:837:2: ( rule__Paragraph__Group_1__0 )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==20) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalHtmlModel.g:837:3: rule__Paragraph__Group_1__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Paragraph__Group_1__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getParagraphAccess().getGroup_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group__2"
+    // InternalHtmlModel.g:845:1: rule__Paragraph__Group__2 : rule__Paragraph__Group__2__Impl rule__Paragraph__Group__3 ;
+    public final void rule__Paragraph__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:849:1: ( rule__Paragraph__Group__2__Impl rule__Paragraph__Group__3 )
+            // InternalHtmlModel.g:850:2: rule__Paragraph__Group__2__Impl rule__Paragraph__Group__3
+            {
+            pushFollow(FOLLOW_10);
+            rule__Paragraph__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__2"
+
+
+    // $ANTLR start "rule__Paragraph__Group__2__Impl"
+    // InternalHtmlModel.g:857:1: rule__Paragraph__Group__2__Impl : ( '{' ) ;
+    public final void rule__Paragraph__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:861:1: ( ( '{' ) )
+            // InternalHtmlModel.g:862:1: ( '{' )
+            {
+            // InternalHtmlModel.g:862:1: ( '{' )
+            // InternalHtmlModel.g:863:2: '{'
+            {
+             before(grammarAccess.getParagraphAccess().getLeftCurlyBracketKeyword_2()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getLeftCurlyBracketKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group__3"
+    // InternalHtmlModel.g:872:1: rule__Paragraph__Group__3 : rule__Paragraph__Group__3__Impl rule__Paragraph__Group__4 ;
+    public final void rule__Paragraph__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:876:1: ( rule__Paragraph__Group__3__Impl rule__Paragraph__Group__4 )
+            // InternalHtmlModel.g:877:2: rule__Paragraph__Group__3__Impl rule__Paragraph__Group__4
+            {
+            pushFollow(FOLLOW_17);
+            rule__Paragraph__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__3"
+
+
+    // $ANTLR start "rule__Paragraph__Group__3__Impl"
+    // InternalHtmlModel.g:884:1: rule__Paragraph__Group__3__Impl : ( ( rule__Paragraph__ContentAssignment_3 ) ) ;
+    public final void rule__Paragraph__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:888:1: ( ( ( rule__Paragraph__ContentAssignment_3 ) ) )
+            // InternalHtmlModel.g:889:1: ( ( rule__Paragraph__ContentAssignment_3 ) )
+            {
+            // InternalHtmlModel.g:889:1: ( ( rule__Paragraph__ContentAssignment_3 ) )
+            // InternalHtmlModel.g:890:2: ( rule__Paragraph__ContentAssignment_3 )
+            {
+             before(grammarAccess.getParagraphAccess().getContentAssignment_3()); 
+            // InternalHtmlModel.g:891:2: ( rule__Paragraph__ContentAssignment_3 )
+            // InternalHtmlModel.g:891:3: rule__Paragraph__ContentAssignment_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__ContentAssignment_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getParagraphAccess().getContentAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__3__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group__4"
+    // InternalHtmlModel.g:899:1: rule__Paragraph__Group__4 : rule__Paragraph__Group__4__Impl ;
+    public final void rule__Paragraph__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:903:1: ( rule__Paragraph__Group__4__Impl )
+            // InternalHtmlModel.g:904:2: rule__Paragraph__Group__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__4"
+
+
+    // $ANTLR start "rule__Paragraph__Group__4__Impl"
+    // InternalHtmlModel.g:910:1: rule__Paragraph__Group__4__Impl : ( '}' ) ;
+    public final void rule__Paragraph__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:914:1: ( ( '}' ) )
+            // InternalHtmlModel.g:915:1: ( '}' )
+            {
+            // InternalHtmlModel.g:915:1: ( '}' )
+            // InternalHtmlModel.g:916:2: '}'
+            {
+             before(grammarAccess.getParagraphAccess().getRightCurlyBracketKeyword_4()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getRightCurlyBracketKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__0"
+    // InternalHtmlModel.g:926:1: rule__Paragraph__Group_1__0 : rule__Paragraph__Group_1__0__Impl rule__Paragraph__Group_1__1 ;
+    public final void rule__Paragraph__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:930:1: ( rule__Paragraph__Group_1__0__Impl rule__Paragraph__Group_1__1 )
+            // InternalHtmlModel.g:931:2: rule__Paragraph__Group_1__0__Impl rule__Paragraph__Group_1__1
+            {
+            pushFollow(FOLLOW_18);
+            rule__Paragraph__Group_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__0"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__0__Impl"
+    // InternalHtmlModel.g:938:1: rule__Paragraph__Group_1__0__Impl : ( '(' ) ;
+    public final void rule__Paragraph__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:942:1: ( ( '(' ) )
+            // InternalHtmlModel.g:943:1: ( '(' )
+            {
+            // InternalHtmlModel.g:943:1: ( '(' )
+            // InternalHtmlModel.g:944:2: '('
+            {
+             before(grammarAccess.getParagraphAccess().getLeftParenthesisKeyword_1_0()); 
+            match(input,20,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getLeftParenthesisKeyword_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__1"
+    // InternalHtmlModel.g:953:1: rule__Paragraph__Group_1__1 : rule__Paragraph__Group_1__1__Impl rule__Paragraph__Group_1__2 ;
+    public final void rule__Paragraph__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:957:1: ( rule__Paragraph__Group_1__1__Impl rule__Paragraph__Group_1__2 )
+            // InternalHtmlModel.g:958:2: rule__Paragraph__Group_1__1__Impl rule__Paragraph__Group_1__2
+            {
+            pushFollow(FOLLOW_9);
+            rule__Paragraph__Group_1__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group_1__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__1"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__1__Impl"
+    // InternalHtmlModel.g:965:1: rule__Paragraph__Group_1__1__Impl : ( 'color' ) ;
+    public final void rule__Paragraph__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:969:1: ( ( 'color' ) )
+            // InternalHtmlModel.g:970:1: ( 'color' )
+            {
+            // InternalHtmlModel.g:970:1: ( 'color' )
+            // InternalHtmlModel.g:971:2: 'color'
+            {
+             before(grammarAccess.getParagraphAccess().getColorKeyword_1_1()); 
+            match(input,27,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getColorKeyword_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__1__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__2"
+    // InternalHtmlModel.g:980:1: rule__Paragraph__Group_1__2 : rule__Paragraph__Group_1__2__Impl rule__Paragraph__Group_1__3 ;
+    public final void rule__Paragraph__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:984:1: ( rule__Paragraph__Group_1__2__Impl rule__Paragraph__Group_1__3 )
+            // InternalHtmlModel.g:985:2: rule__Paragraph__Group_1__2__Impl rule__Paragraph__Group_1__3
+            {
+            pushFollow(FOLLOW_19);
+            rule__Paragraph__Group_1__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group_1__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__2"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__2__Impl"
+    // InternalHtmlModel.g:992:1: rule__Paragraph__Group_1__2__Impl : ( '=' ) ;
+    public final void rule__Paragraph__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:996:1: ( ( '=' ) )
+            // InternalHtmlModel.g:997:1: ( '=' )
+            {
+            // InternalHtmlModel.g:997:1: ( '=' )
+            // InternalHtmlModel.g:998:2: '='
+            {
+             before(grammarAccess.getParagraphAccess().getEqualsSignKeyword_1_2()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getEqualsSignKeyword_1_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__2__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__3"
+    // InternalHtmlModel.g:1007:1: rule__Paragraph__Group_1__3 : rule__Paragraph__Group_1__3__Impl rule__Paragraph__Group_1__4 ;
+    public final void rule__Paragraph__Group_1__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1011:1: ( rule__Paragraph__Group_1__3__Impl rule__Paragraph__Group_1__4 )
+            // InternalHtmlModel.g:1012:2: rule__Paragraph__Group_1__3__Impl rule__Paragraph__Group_1__4
+            {
+            pushFollow(FOLLOW_20);
+            rule__Paragraph__Group_1__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group_1__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__3"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__3__Impl"
+    // InternalHtmlModel.g:1019:1: rule__Paragraph__Group_1__3__Impl : ( ( rule__Paragraph__ColorAssignment_1_3 ) ) ;
+    public final void rule__Paragraph__Group_1__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1023:1: ( ( ( rule__Paragraph__ColorAssignment_1_3 ) ) )
+            // InternalHtmlModel.g:1024:1: ( ( rule__Paragraph__ColorAssignment_1_3 ) )
+            {
+            // InternalHtmlModel.g:1024:1: ( ( rule__Paragraph__ColorAssignment_1_3 ) )
+            // InternalHtmlModel.g:1025:2: ( rule__Paragraph__ColorAssignment_1_3 )
+            {
+             before(grammarAccess.getParagraphAccess().getColorAssignment_1_3()); 
+            // InternalHtmlModel.g:1026:2: ( rule__Paragraph__ColorAssignment_1_3 )
+            // InternalHtmlModel.g:1026:3: rule__Paragraph__ColorAssignment_1_3
+            {
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__ColorAssignment_1_3();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getParagraphAccess().getColorAssignment_1_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__3__Impl"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__4"
+    // InternalHtmlModel.g:1034:1: rule__Paragraph__Group_1__4 : rule__Paragraph__Group_1__4__Impl ;
+    public final void rule__Paragraph__Group_1__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1038:1: ( rule__Paragraph__Group_1__4__Impl )
+            // InternalHtmlModel.g:1039:2: rule__Paragraph__Group_1__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Paragraph__Group_1__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__4"
+
+
+    // $ANTLR start "rule__Paragraph__Group_1__4__Impl"
+    // InternalHtmlModel.g:1045:1: rule__Paragraph__Group_1__4__Impl : ( ')' ) ;
+    public final void rule__Paragraph__Group_1__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1049:1: ( ( ')' ) )
+            // InternalHtmlModel.g:1050:1: ( ')' )
+            {
+            // InternalHtmlModel.g:1050:1: ( ')' )
+            // InternalHtmlModel.g:1051:2: ')'
+            {
+             before(grammarAccess.getParagraphAccess().getRightParenthesisKeyword_1_4()); 
+            match(input,23,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getRightParenthesisKeyword_1_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__Group_1__4__Impl"
+
+
+    // $ANTLR start "rule__References__Group__0"
+    // InternalHtmlModel.g:1061:1: rule__References__Group__0 : rule__References__Group__0__Impl rule__References__Group__1 ;
+    public final void rule__References__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1065:1: ( rule__References__Group__0__Impl rule__References__Group__1 )
+            // InternalHtmlModel.g:1066:2: rule__References__Group__0__Impl rule__References__Group__1
+            {
+            pushFollow(FOLLOW_21);
+            rule__References__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__References__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__0"
+
+
+    // $ANTLR start "rule__References__Group__0__Impl"
+    // InternalHtmlModel.g:1073:1: rule__References__Group__0__Impl : ( () ) ;
+    public final void rule__References__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1077:1: ( ( () ) )
+            // InternalHtmlModel.g:1078:1: ( () )
+            {
+            // InternalHtmlModel.g:1078:1: ( () )
+            // InternalHtmlModel.g:1079:2: ()
+            {
+             before(grammarAccess.getReferencesAccess().getReferencesAction_0()); 
+            // InternalHtmlModel.g:1080:2: ()
+            // InternalHtmlModel.g:1080:3: 
+            {
+            }
+
+             after(grammarAccess.getReferencesAccess().getReferencesAction_0()); 
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__0__Impl"
+
+
+    // $ANTLR start "rule__References__Group__1"
+    // InternalHtmlModel.g:1088:1: rule__References__Group__1 : rule__References__Group__1__Impl rule__References__Group__2 ;
+    public final void rule__References__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1092:1: ( rule__References__Group__1__Impl rule__References__Group__2 )
+            // InternalHtmlModel.g:1093:2: rule__References__Group__1__Impl rule__References__Group__2
+            {
+            pushFollow(FOLLOW_4);
+            rule__References__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__References__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__1"
+
+
+    // $ANTLR start "rule__References__Group__1__Impl"
+    // InternalHtmlModel.g:1100:1: rule__References__Group__1__Impl : ( 'References' ) ;
+    public final void rule__References__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1104:1: ( ( 'References' ) )
+            // InternalHtmlModel.g:1105:1: ( 'References' )
+            {
+            // InternalHtmlModel.g:1105:1: ( 'References' )
+            // InternalHtmlModel.g:1106:2: 'References'
+            {
+             before(grammarAccess.getReferencesAccess().getReferencesKeyword_1()); 
+            match(input,28,FOLLOW_2); 
+             after(grammarAccess.getReferencesAccess().getReferencesKeyword_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__1__Impl"
+
+
+    // $ANTLR start "rule__References__Group__2"
+    // InternalHtmlModel.g:1115:1: rule__References__Group__2 : rule__References__Group__2__Impl rule__References__Group__3 ;
+    public final void rule__References__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1119:1: ( rule__References__Group__2__Impl rule__References__Group__3 )
+            // InternalHtmlModel.g:1120:2: rule__References__Group__2__Impl rule__References__Group__3
+            {
+            pushFollow(FOLLOW_22);
+            rule__References__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__References__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__2"
+
+
+    // $ANTLR start "rule__References__Group__2__Impl"
+    // InternalHtmlModel.g:1127:1: rule__References__Group__2__Impl : ( '{' ) ;
+    public final void rule__References__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1131:1: ( ( '{' ) )
+            // InternalHtmlModel.g:1132:1: ( '{' )
+            {
+            // InternalHtmlModel.g:1132:1: ( '{' )
+            // InternalHtmlModel.g:1133:2: '{'
+            {
+             before(grammarAccess.getReferencesAccess().getLeftCurlyBracketKeyword_2()); 
+            match(input,17,FOLLOW_2); 
+             after(grammarAccess.getReferencesAccess().getLeftCurlyBracketKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__2__Impl"
+
+
+    // $ANTLR start "rule__References__Group__3"
+    // InternalHtmlModel.g:1142:1: rule__References__Group__3 : rule__References__Group__3__Impl rule__References__Group__4 ;
+    public final void rule__References__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1146:1: ( rule__References__Group__3__Impl rule__References__Group__4 )
+            // InternalHtmlModel.g:1147:2: rule__References__Group__3__Impl rule__References__Group__4
+            {
+            pushFollow(FOLLOW_22);
+            rule__References__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__References__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__3"
+
+
+    // $ANTLR start "rule__References__Group__3__Impl"
+    // InternalHtmlModel.g:1154:1: rule__References__Group__3__Impl : ( ( rule__References__LinksAssignment_3 )* ) ;
+    public final void rule__References__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1158:1: ( ( ( rule__References__LinksAssignment_3 )* ) )
+            // InternalHtmlModel.g:1159:1: ( ( rule__References__LinksAssignment_3 )* )
+            {
+            // InternalHtmlModel.g:1159:1: ( ( rule__References__LinksAssignment_3 )* )
+            // InternalHtmlModel.g:1160:2: ( rule__References__LinksAssignment_3 )*
+            {
+             before(grammarAccess.getReferencesAccess().getLinksAssignment_3()); 
+            // InternalHtmlModel.g:1161:2: ( rule__References__LinksAssignment_3 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==RULE_ID) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalHtmlModel.g:1161:3: rule__References__LinksAssignment_3
+            	    {
+            	    pushFollow(FOLLOW_23);
+            	    rule__References__LinksAssignment_3();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getReferencesAccess().getLinksAssignment_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__3__Impl"
+
+
+    // $ANTLR start "rule__References__Group__4"
+    // InternalHtmlModel.g:1169:1: rule__References__Group__4 : rule__References__Group__4__Impl ;
+    public final void rule__References__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1173:1: ( rule__References__Group__4__Impl )
+            // InternalHtmlModel.g:1174:2: rule__References__Group__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__References__Group__4__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__4"
+
+
+    // $ANTLR start "rule__References__Group__4__Impl"
+    // InternalHtmlModel.g:1180:1: rule__References__Group__4__Impl : ( '}' ) ;
+    public final void rule__References__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1184:1: ( ( '}' ) )
+            // InternalHtmlModel.g:1185:1: ( '}' )
+            {
+            // InternalHtmlModel.g:1185:1: ( '}' )
+            // InternalHtmlModel.g:1186:2: '}'
+            {
+             before(grammarAccess.getReferencesAccess().getRightCurlyBracketKeyword_4()); 
+            match(input,18,FOLLOW_2); 
+             after(grammarAccess.getReferencesAccess().getRightCurlyBracketKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Link__Group__0"
+    // InternalHtmlModel.g:1196:1: rule__Link__Group__0 : rule__Link__Group__0__Impl rule__Link__Group__1 ;
+    public final void rule__Link__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1200:1: ( rule__Link__Group__0__Impl rule__Link__Group__1 )
+            // InternalHtmlModel.g:1201:2: rule__Link__Group__0__Impl rule__Link__Group__1
+            {
+            pushFollow(FOLLOW_24);
+            rule__Link__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Link__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group__0"
+
+
+    // $ANTLR start "rule__Link__Group__0__Impl"
+    // InternalHtmlModel.g:1208:1: rule__Link__Group__0__Impl : ( RULE_ID ) ;
+    public final void rule__Link__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1212:1: ( ( RULE_ID ) )
+            // InternalHtmlModel.g:1213:1: ( RULE_ID )
+            {
+            // InternalHtmlModel.g:1213:1: ( RULE_ID )
+            // InternalHtmlModel.g:1214:2: RULE_ID
+            {
+             before(grammarAccess.getLinkAccess().getIDTerminalRuleCall_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getLinkAccess().getIDTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Link__Group__1"
+    // InternalHtmlModel.g:1223:1: rule__Link__Group__1 : rule__Link__Group__1__Impl ;
+    public final void rule__Link__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1227:1: ( rule__Link__Group__1__Impl )
+            // InternalHtmlModel.g:1228:2: rule__Link__Group__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Link__Group__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group__1"
+
+
+    // $ANTLR start "rule__Link__Group__1__Impl"
+    // InternalHtmlModel.g:1234:1: rule__Link__Group__1__Impl : ( ( rule__Link__Group_1__0 )* ) ;
+    public final void rule__Link__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1238:1: ( ( ( rule__Link__Group_1__0 )* ) )
+            // InternalHtmlModel.g:1239:1: ( ( rule__Link__Group_1__0 )* )
+            {
+            // InternalHtmlModel.g:1239:1: ( ( rule__Link__Group_1__0 )* )
+            // InternalHtmlModel.g:1240:2: ( rule__Link__Group_1__0 )*
+            {
+             before(grammarAccess.getLinkAccess().getGroup_1()); 
+            // InternalHtmlModel.g:1241:2: ( rule__Link__Group_1__0 )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==29) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // InternalHtmlModel.g:1241:3: rule__Link__Group_1__0
+            	    {
+            	    pushFollow(FOLLOW_25);
+            	    rule__Link__Group_1__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+             after(grammarAccess.getLinkAccess().getGroup_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Link__Group_1__0"
+    // InternalHtmlModel.g:1250:1: rule__Link__Group_1__0 : rule__Link__Group_1__0__Impl rule__Link__Group_1__1 ;
+    public final void rule__Link__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1254:1: ( rule__Link__Group_1__0__Impl rule__Link__Group_1__1 )
+            // InternalHtmlModel.g:1255:2: rule__Link__Group_1__0__Impl rule__Link__Group_1__1
+            {
+            pushFollow(FOLLOW_26);
+            rule__Link__Group_1__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Link__Group_1__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group_1__0"
+
+
+    // $ANTLR start "rule__Link__Group_1__0__Impl"
+    // InternalHtmlModel.g:1262:1: rule__Link__Group_1__0__Impl : ( '.' ) ;
+    public final void rule__Link__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1266:1: ( ( '.' ) )
+            // InternalHtmlModel.g:1267:1: ( '.' )
+            {
+            // InternalHtmlModel.g:1267:1: ( '.' )
+            // InternalHtmlModel.g:1268:2: '.'
+            {
+             before(grammarAccess.getLinkAccess().getFullStopKeyword_1_0()); 
+            match(input,29,FOLLOW_2); 
+             after(grammarAccess.getLinkAccess().getFullStopKeyword_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__Link__Group_1__1"
+    // InternalHtmlModel.g:1277:1: rule__Link__Group_1__1 : rule__Link__Group_1__1__Impl ;
+    public final void rule__Link__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1281:1: ( rule__Link__Group_1__1__Impl )
+            // InternalHtmlModel.g:1282:2: rule__Link__Group_1__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Link__Group_1__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group_1__1"
+
+
+    // $ANTLR start "rule__Link__Group_1__1__Impl"
+    // InternalHtmlModel.g:1288:1: rule__Link__Group_1__1__Impl : ( RULE_ID ) ;
+    public final void rule__Link__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1292:1: ( ( RULE_ID ) )
+            // InternalHtmlModel.g:1293:1: ( RULE_ID )
+            {
+            // InternalHtmlModel.g:1293:1: ( RULE_ID )
+            // InternalHtmlModel.g:1294:2: RULE_ID
+            {
+             before(grammarAccess.getLinkAccess().getIDTerminalRuleCall_1_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getLinkAccess().getIDTerminalRuleCall_1_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Link__Group_1__1__Impl"
+
+
+    // $ANTLR start "rule__MyHtmlModel__ArticleAssignment"
+    // InternalHtmlModel.g:1304:1: rule__MyHtmlModel__ArticleAssignment : ( ruleArticle ) ;
+    public final void rule__MyHtmlModel__ArticleAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1308:1: ( ( ruleArticle ) )
+            // InternalHtmlModel.g:1309:2: ( ruleArticle )
+            {
+            // InternalHtmlModel.g:1309:2: ( ruleArticle )
+            // InternalHtmlModel.g:1310:3: ruleArticle
+            {
+             before(grammarAccess.getMyHtmlModelAccess().getArticleArticleParserRuleCall_0()); 
+            pushFollow(FOLLOW_2);
+            ruleArticle();
+
+            state._fsp--;
+
+             after(grammarAccess.getMyHtmlModelAccess().getArticleArticleParserRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__MyHtmlModel__ArticleAssignment"
+
+
+    // $ANTLR start "rule__Article__SectionsAssignment_3"
+    // InternalHtmlModel.g:1319:1: rule__Article__SectionsAssignment_3 : ( ruleSection ) ;
+    public final void rule__Article__SectionsAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1323:1: ( ( ruleSection ) )
+            // InternalHtmlModel.g:1324:2: ( ruleSection )
+            {
+            // InternalHtmlModel.g:1324:2: ( ruleSection )
+            // InternalHtmlModel.g:1325:3: ruleSection
+            {
+             before(grammarAccess.getArticleAccess().getSectionsSectionParserRuleCall_3_0()); 
+            pushFollow(FOLLOW_2);
+            ruleSection();
+
+            state._fsp--;
+
+             after(grammarAccess.getArticleAccess().getSectionsSectionParserRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__SectionsAssignment_3"
+
+
+    // $ANTLR start "rule__Article__ReferencesAssignment_4"
+    // InternalHtmlModel.g:1334:1: rule__Article__ReferencesAssignment_4 : ( ruleReferences ) ;
+    public final void rule__Article__ReferencesAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1338:1: ( ( ruleReferences ) )
+            // InternalHtmlModel.g:1339:2: ( ruleReferences )
+            {
+            // InternalHtmlModel.g:1339:2: ( ruleReferences )
+            // InternalHtmlModel.g:1340:3: ruleReferences
+            {
+             before(grammarAccess.getArticleAccess().getReferencesReferencesParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleReferences();
+
+            state._fsp--;
+
+             after(grammarAccess.getArticleAccess().getReferencesReferencesParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Article__ReferencesAssignment_4"
+
+
+    // $ANTLR start "rule__Section__TitleAssignment_4"
+    // InternalHtmlModel.g:1349:1: rule__Section__TitleAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Section__TitleAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1353:1: ( ( RULE_STRING ) )
+            // InternalHtmlModel.g:1354:2: ( RULE_STRING )
+            {
+            // InternalHtmlModel.g:1354:2: ( RULE_STRING )
+            // InternalHtmlModel.g:1355:3: RULE_STRING
+            {
+             before(grammarAccess.getSectionAccess().getTitleSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getTitleSTRINGTerminalRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__TitleAssignment_4"
+
+
+    // $ANTLR start "rule__Section__SizeAssignment_5_3"
+    // InternalHtmlModel.g:1364:1: rule__Section__SizeAssignment_5_3 : ( RULE_HINT ) ;
+    public final void rule__Section__SizeAssignment_5_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1368:1: ( ( RULE_HINT ) )
+            // InternalHtmlModel.g:1369:2: ( RULE_HINT )
+            {
+            // InternalHtmlModel.g:1369:2: ( RULE_HINT )
+            // InternalHtmlModel.g:1370:3: RULE_HINT
+            {
+             before(grammarAccess.getSectionAccess().getSizeHINTTerminalRuleCall_5_3_0()); 
+            match(input,RULE_HINT,FOLLOW_2); 
+             after(grammarAccess.getSectionAccess().getSizeHINTTerminalRuleCall_5_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__SizeAssignment_5_3"
+
+
+    // $ANTLR start "rule__Section__ParagraphsAssignment_8"
+    // InternalHtmlModel.g:1379:1: rule__Section__ParagraphsAssignment_8 : ( ruleParagraph ) ;
+    public final void rule__Section__ParagraphsAssignment_8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1383:1: ( ( ruleParagraph ) )
+            // InternalHtmlModel.g:1384:2: ( ruleParagraph )
+            {
+            // InternalHtmlModel.g:1384:2: ( ruleParagraph )
+            // InternalHtmlModel.g:1385:3: ruleParagraph
+            {
+             before(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_8_0()); 
+            pushFollow(FOLLOW_2);
+            ruleParagraph();
+
+            state._fsp--;
+
+             after(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Section__ParagraphsAssignment_8"
+
+
+    // $ANTLR start "rule__Paragraph__ColorAssignment_1_3"
+    // InternalHtmlModel.g:1394:1: rule__Paragraph__ColorAssignment_1_3 : ( ruleBasicColors ) ;
+    public final void rule__Paragraph__ColorAssignment_1_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1398:1: ( ( ruleBasicColors ) )
+            // InternalHtmlModel.g:1399:2: ( ruleBasicColors )
+            {
+            // InternalHtmlModel.g:1399:2: ( ruleBasicColors )
+            // InternalHtmlModel.g:1400:3: ruleBasicColors
+            {
+             before(grammarAccess.getParagraphAccess().getColorBasicColorsEnumRuleCall_1_3_0()); 
+            pushFollow(FOLLOW_2);
+            ruleBasicColors();
+
+            state._fsp--;
+
+             after(grammarAccess.getParagraphAccess().getColorBasicColorsEnumRuleCall_1_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__ColorAssignment_1_3"
+
+
+    // $ANTLR start "rule__Paragraph__ContentAssignment_3"
+    // InternalHtmlModel.g:1409:1: rule__Paragraph__ContentAssignment_3 : ( RULE_STRING ) ;
+    public final void rule__Paragraph__ContentAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1413:1: ( ( RULE_STRING ) )
+            // InternalHtmlModel.g:1414:2: ( RULE_STRING )
+            {
+            // InternalHtmlModel.g:1414:2: ( RULE_STRING )
+            // InternalHtmlModel.g:1415:3: RULE_STRING
+            {
+             before(grammarAccess.getParagraphAccess().getContentSTRINGTerminalRuleCall_3_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getParagraphAccess().getContentSTRINGTerminalRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Paragraph__ContentAssignment_3"
+
+
+    // $ANTLR start "rule__References__LinksAssignment_3"
+    // InternalHtmlModel.g:1424:1: rule__References__LinksAssignment_3 : ( ruleLink ) ;
+    public final void rule__References__LinksAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalHtmlModel.g:1428:1: ( ( ruleLink ) )
+            // InternalHtmlModel.g:1429:2: ( ruleLink )
+            {
+            // InternalHtmlModel.g:1429:2: ( ruleLink )
+            // InternalHtmlModel.g:1430:3: ruleLink
+            {
+             before(grammarAccess.getReferencesAccess().getLinksLinkParserRuleCall_3_0()); 
+            pushFollow(FOLLOW_2);
+            ruleLink();
+
+            state._fsp--;
+
+             after(grammarAccess.getReferencesAccess().getLinksLinkParserRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__References__LinksAssignment_3"
+
+    // Delegated rules
+
+
+ 
+
+    public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00000000100C0000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000004040000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000120000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x000000000000F000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000040010L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000010L});
+
+}

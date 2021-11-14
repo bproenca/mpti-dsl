@@ -10,6 +10,7 @@ import br.edu.ufrn.myhtml.htmlModel.References;
 import br.edu.ufrn.myhtml.htmlModel.Section;
 import com.google.common.collect.Iterators;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -25,12 +26,19 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
  */
 @SuppressWarnings("all")
 public class HtmlModelGenerator extends AbstractGenerator {
+  private String filename;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    URI _uRI = resource.getURI();
+    int _segmentCount = resource.getURI().segmentCount();
+    int _minus = (_segmentCount - 1);
+    this.filename = _uRI.segment(_minus).replace("myhtml", "html");
+    System.out.println((">>" + this.filename));
     final Function1<MyHtmlModel, CharSequence> _function = (MyHtmlModel it) -> {
       return this.compile(it);
     };
-    fsa.generateFile("MyPage.html", 
+    fsa.generateFile(this.filename, 
       IteratorExtensions.join(IteratorExtensions.<MyHtmlModel, CharSequence>map(Iterators.<MyHtmlModel>filter(resource.getAllContents(), MyHtmlModel.class), _function), ", "));
   }
   
@@ -73,8 +81,6 @@ public class HtmlModelGenerator extends AbstractGenerator {
     _builder.append("</body>");
     _builder.newLine();
     _builder.append("</html>");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }
