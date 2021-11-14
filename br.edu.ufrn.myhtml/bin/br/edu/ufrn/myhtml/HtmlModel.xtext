@@ -1,5 +1,7 @@
 grammar br.edu.ufrn.myhtml.HtmlModel with org.eclipse.xtext.common.Terminals
 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
 generate htmlModel "http://www.edu.br/ufrn/myhtml/HtmlModel"
 
 
@@ -13,7 +15,7 @@ Article:
 	'}';
 	
 Section:
-    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=INT )? ')' '{'
+    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 	(paragraphs+=Paragraph)*
 	'}';
 
@@ -28,12 +30,9 @@ References:
     '}';
 
 Link:
-    Item '.*'?;
-
-Item:
     ID('.' ID)*;
 
-terminal DIGITO : '0..9'+;
+terminal HINT returns ecore::EInt: ('1'..'6');
 
 enum BasicColors:
     black |

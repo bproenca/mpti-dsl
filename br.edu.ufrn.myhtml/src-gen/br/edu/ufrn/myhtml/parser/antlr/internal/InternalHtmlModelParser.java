@@ -22,31 +22,30 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Article'", "'{'", "'}'", "'Section'", "'('", "'title'", "'='", "','", "'size'", "'){'", "'Paragraph'", "'color'", "')'", "'References'", "'.*'", "'.'", "'black'", "'red'", "'blue'", "'green'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_HINT", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Article'", "'{'", "'}'", "'Section'", "'('", "'title'", "'='", "','", "'size'", "')'", "'Paragraph'", "'color'", "'References'", "'.'", "'black'", "'red'", "'blue'", "'green'"
     };
+    public static final int RULE_HINT=5;
     public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_SL_COMMENT=9;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
-    public static final int T__11=11;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int T__30=30;
     public static final int RULE_ID=6;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=7;
     public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -263,11 +262,11 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_3); 
+            otherlv_1=(Token)match(input,12,FOLLOW_3); 
 
             			newLeafNode(otherlv_1, grammarAccess.getArticleAccess().getArticleKeyword_1());
             		
-            otherlv_2=(Token)match(input,12,FOLLOW_4); 
+            otherlv_2=(Token)match(input,13,FOLLOW_4); 
 
             			newLeafNode(otherlv_2, grammarAccess.getArticleAccess().getLeftCurlyBracketKeyword_2());
             		
@@ -277,7 +276,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==14) ) {
+                if ( (LA1_0==15) ) {
                     alt1=1;
                 }
 
@@ -362,7 +361,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,13,FOLLOW_2); 
+            otherlv_5=(Token)match(input,14,FOLLOW_2); 
 
             			newLeafNode(otherlv_5, grammarAccess.getArticleAccess().getRightCurlyBracketKeyword_5());
             		
@@ -425,7 +424,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSection"
-    // InternalHtmlModel.g:184:1: ruleSection returns [EObject current=null] : (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )? otherlv_9= '){' ( (lv_paragraphs_10_0= ruleParagraph ) )* otherlv_11= '}' ) ;
+    // InternalHtmlModel.g:184:1: ruleSection returns [EObject current=null] : (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )? otherlv_9= ')' otherlv_10= '{' ( (lv_paragraphs_11_0= ruleParagraph ) )* otherlv_12= '}' ) ;
     public final EObject ruleSection() throws RecognitionException {
         EObject current = null;
 
@@ -439,33 +438,34 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
         Token otherlv_7=null;
         Token lv_size_8_0=null;
         Token otherlv_9=null;
-        Token otherlv_11=null;
-        EObject lv_paragraphs_10_0 = null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
+        EObject lv_paragraphs_11_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalHtmlModel.g:190:2: ( (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )? otherlv_9= '){' ( (lv_paragraphs_10_0= ruleParagraph ) )* otherlv_11= '}' ) )
-            // InternalHtmlModel.g:191:2: (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )? otherlv_9= '){' ( (lv_paragraphs_10_0= ruleParagraph ) )* otherlv_11= '}' )
+            // InternalHtmlModel.g:190:2: ( (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )? otherlv_9= ')' otherlv_10= '{' ( (lv_paragraphs_11_0= ruleParagraph ) )* otherlv_12= '}' ) )
+            // InternalHtmlModel.g:191:2: (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )? otherlv_9= ')' otherlv_10= '{' ( (lv_paragraphs_11_0= ruleParagraph ) )* otherlv_12= '}' )
             {
-            // InternalHtmlModel.g:191:2: (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )? otherlv_9= '){' ( (lv_paragraphs_10_0= ruleParagraph ) )* otherlv_11= '}' )
-            // InternalHtmlModel.g:192:3: otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )? otherlv_9= '){' ( (lv_paragraphs_10_0= ruleParagraph ) )* otherlv_11= '}'
+            // InternalHtmlModel.g:191:2: (otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )? otherlv_9= ')' otherlv_10= '{' ( (lv_paragraphs_11_0= ruleParagraph ) )* otherlv_12= '}' )
+            // InternalHtmlModel.g:192:3: otherlv_0= 'Section' otherlv_1= '(' otherlv_2= 'title' otherlv_3= '=' ( (lv_title_4_0= RULE_STRING ) ) (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )? otherlv_9= ')' otherlv_10= '{' ( (lv_paragraphs_11_0= ruleParagraph ) )* otherlv_12= '}'
             {
-            otherlv_0=(Token)match(input,14,FOLLOW_6); 
+            otherlv_0=(Token)match(input,15,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSectionAccess().getSectionKeyword_0());
             		
-            otherlv_1=(Token)match(input,15,FOLLOW_7); 
+            otherlv_1=(Token)match(input,16,FOLLOW_7); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSectionAccess().getLeftParenthesisKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_8); 
+            otherlv_2=(Token)match(input,17,FOLLOW_8); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSectionAccess().getTitleKeyword_2());
             		
-            otherlv_3=(Token)match(input,17,FOLLOW_9); 
+            otherlv_3=(Token)match(input,18,FOLLOW_9); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSectionAccess().getEqualsSignKeyword_3());
             		
@@ -495,38 +495,38 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalHtmlModel.g:226:3: (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) ) )?
+            // InternalHtmlModel.g:226:3: (otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==18) ) {
+            if ( (LA3_0==19) ) {
                 alt3=1;
             }
             switch (alt3) {
                 case 1 :
-                    // InternalHtmlModel.g:227:4: otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_INT ) )
+                    // InternalHtmlModel.g:227:4: otherlv_5= ',' otherlv_6= 'size' otherlv_7= '=' ( (lv_size_8_0= RULE_HINT ) )
                     {
-                    otherlv_5=(Token)match(input,18,FOLLOW_11); 
+                    otherlv_5=(Token)match(input,19,FOLLOW_11); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getSectionAccess().getCommaKeyword_5_0());
                     			
-                    otherlv_6=(Token)match(input,19,FOLLOW_8); 
+                    otherlv_6=(Token)match(input,20,FOLLOW_8); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getSectionAccess().getSizeKeyword_5_1());
                     			
-                    otherlv_7=(Token)match(input,17,FOLLOW_12); 
+                    otherlv_7=(Token)match(input,18,FOLLOW_12); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getSectionAccess().getEqualsSignKeyword_5_2());
                     			
-                    // InternalHtmlModel.g:239:4: ( (lv_size_8_0= RULE_INT ) )
-                    // InternalHtmlModel.g:240:5: (lv_size_8_0= RULE_INT )
+                    // InternalHtmlModel.g:239:4: ( (lv_size_8_0= RULE_HINT ) )
+                    // InternalHtmlModel.g:240:5: (lv_size_8_0= RULE_HINT )
                     {
-                    // InternalHtmlModel.g:240:5: (lv_size_8_0= RULE_INT )
-                    // InternalHtmlModel.g:241:6: lv_size_8_0= RULE_INT
+                    // InternalHtmlModel.g:240:5: (lv_size_8_0= RULE_HINT )
+                    // InternalHtmlModel.g:241:6: lv_size_8_0= RULE_HINT
                     {
-                    lv_size_8_0=(Token)match(input,RULE_INT,FOLLOW_13); 
+                    lv_size_8_0=(Token)match(input,RULE_HINT,FOLLOW_13); 
 
-                    						newLeafNode(lv_size_8_0, grammarAccess.getSectionAccess().getSizeINTTerminalRuleCall_5_3_0());
+                    						newLeafNode(lv_size_8_0, grammarAccess.getSectionAccess().getSizeHINTTerminalRuleCall_5_3_0());
                     					
 
                     						if (current==null) {
@@ -536,7 +536,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                     							current,
                     							"size",
                     							lv_size_8_0,
-                    							"org.eclipse.xtext.common.Terminals.INT");
+                    							"br.edu.ufrn.myhtml.HtmlModel.HINT");
                     					
 
                     }
@@ -550,33 +550,37 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,20,FOLLOW_14); 
+            otherlv_9=(Token)match(input,21,FOLLOW_3); 
 
-            			newLeafNode(otherlv_9, grammarAccess.getSectionAccess().getRightParenthesisLeftCurlyBracketKeyword_6());
+            			newLeafNode(otherlv_9, grammarAccess.getSectionAccess().getRightParenthesisKeyword_6());
             		
-            // InternalHtmlModel.g:262:3: ( (lv_paragraphs_10_0= ruleParagraph ) )*
+            otherlv_10=(Token)match(input,13,FOLLOW_14); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_7());
+            		
+            // InternalHtmlModel.g:266:3: ( (lv_paragraphs_11_0= ruleParagraph ) )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==21) ) {
+                if ( (LA4_0==22) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalHtmlModel.g:263:4: (lv_paragraphs_10_0= ruleParagraph )
+            	    // InternalHtmlModel.g:267:4: (lv_paragraphs_11_0= ruleParagraph )
             	    {
-            	    // InternalHtmlModel.g:263:4: (lv_paragraphs_10_0= ruleParagraph )
-            	    // InternalHtmlModel.g:264:5: lv_paragraphs_10_0= ruleParagraph
+            	    // InternalHtmlModel.g:267:4: (lv_paragraphs_11_0= ruleParagraph )
+            	    // InternalHtmlModel.g:268:5: lv_paragraphs_11_0= ruleParagraph
             	    {
 
-            	    					newCompositeNode(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_7_0());
+            	    					newCompositeNode(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_8_0());
             	    				
             	    pushFollow(FOLLOW_14);
-            	    lv_paragraphs_10_0=ruleParagraph();
+            	    lv_paragraphs_11_0=ruleParagraph();
 
             	    state._fsp--;
 
@@ -587,7 +591,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
             	    					add(
             	    						current,
             	    						"paragraphs",
-            	    						lv_paragraphs_10_0,
+            	    						lv_paragraphs_11_0,
             	    						"br.edu.ufrn.myhtml.HtmlModel.Paragraph");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -603,9 +607,9 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_11=(Token)match(input,13,FOLLOW_2); 
+            otherlv_12=(Token)match(input,14,FOLLOW_2); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_8());
+            			newLeafNode(otherlv_12, grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_9());
             		
 
             }
@@ -630,7 +634,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParagraph"
-    // InternalHtmlModel.g:289:1: entryRuleParagraph returns [EObject current=null] : iv_ruleParagraph= ruleParagraph EOF ;
+    // InternalHtmlModel.g:293:1: entryRuleParagraph returns [EObject current=null] : iv_ruleParagraph= ruleParagraph EOF ;
     public final EObject entryRuleParagraph() throws RecognitionException {
         EObject current = null;
 
@@ -638,8 +642,8 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHtmlModel.g:289:50: (iv_ruleParagraph= ruleParagraph EOF )
-            // InternalHtmlModel.g:290:2: iv_ruleParagraph= ruleParagraph EOF
+            // InternalHtmlModel.g:293:50: (iv_ruleParagraph= ruleParagraph EOF )
+            // InternalHtmlModel.g:294:2: iv_ruleParagraph= ruleParagraph EOF
             {
              newCompositeNode(grammarAccess.getParagraphRule()); 
             pushFollow(FOLLOW_1);
@@ -666,7 +670,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParagraph"
-    // InternalHtmlModel.g:296:1: ruleParagraph returns [EObject current=null] : (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' ) ;
+    // InternalHtmlModel.g:300:1: ruleParagraph returns [EObject current=null] : (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' ) ;
     public final EObject ruleParagraph() throws RecognitionException {
         EObject current = null;
 
@@ -685,49 +689,49 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHtmlModel.g:302:2: ( (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' ) )
-            // InternalHtmlModel.g:303:2: (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' )
+            // InternalHtmlModel.g:306:2: ( (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' ) )
+            // InternalHtmlModel.g:307:2: (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' )
             {
-            // InternalHtmlModel.g:303:2: (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' )
-            // InternalHtmlModel.g:304:3: otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}'
+            // InternalHtmlModel.g:307:2: (otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}' )
+            // InternalHtmlModel.g:308:3: otherlv_0= 'Paragraph' (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )? otherlv_6= '{' ( (lv_content_7_0= RULE_STRING ) ) otherlv_8= '}'
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_15); 
+            otherlv_0=(Token)match(input,22,FOLLOW_15); 
 
             			newLeafNode(otherlv_0, grammarAccess.getParagraphAccess().getParagraphKeyword_0());
             		
-            // InternalHtmlModel.g:308:3: (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )?
+            // InternalHtmlModel.g:312:3: (otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==15) ) {
+            if ( (LA5_0==16) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // InternalHtmlModel.g:309:4: otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')'
+                    // InternalHtmlModel.g:313:4: otherlv_1= '(' otherlv_2= 'color' otherlv_3= '=' ( (lv_color_4_0= ruleBasicColors ) ) otherlv_5= ')'
                     {
-                    otherlv_1=(Token)match(input,15,FOLLOW_16); 
+                    otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getParagraphAccess().getLeftParenthesisKeyword_1_0());
                     			
-                    otherlv_2=(Token)match(input,22,FOLLOW_8); 
+                    otherlv_2=(Token)match(input,23,FOLLOW_8); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getParagraphAccess().getColorKeyword_1_1());
                     			
-                    otherlv_3=(Token)match(input,17,FOLLOW_17); 
+                    otherlv_3=(Token)match(input,18,FOLLOW_17); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getParagraphAccess().getEqualsSignKeyword_1_2());
                     			
-                    // InternalHtmlModel.g:321:4: ( (lv_color_4_0= ruleBasicColors ) )
-                    // InternalHtmlModel.g:322:5: (lv_color_4_0= ruleBasicColors )
+                    // InternalHtmlModel.g:325:4: ( (lv_color_4_0= ruleBasicColors ) )
+                    // InternalHtmlModel.g:326:5: (lv_color_4_0= ruleBasicColors )
                     {
-                    // InternalHtmlModel.g:322:5: (lv_color_4_0= ruleBasicColors )
-                    // InternalHtmlModel.g:323:6: lv_color_4_0= ruleBasicColors
+                    // InternalHtmlModel.g:326:5: (lv_color_4_0= ruleBasicColors )
+                    // InternalHtmlModel.g:327:6: lv_color_4_0= ruleBasicColors
                     {
 
                     						newCompositeNode(grammarAccess.getParagraphAccess().getColorBasicColorsEnumRuleCall_1_3_0());
                     					
-                    pushFollow(FOLLOW_18);
+                    pushFollow(FOLLOW_13);
                     lv_color_4_0=ruleBasicColors();
 
                     state._fsp--;
@@ -749,7 +753,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,23,FOLLOW_3); 
+                    otherlv_5=(Token)match(input,21,FOLLOW_3); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getParagraphAccess().getRightParenthesisKeyword_1_4());
                     			
@@ -759,15 +763,15 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,12,FOLLOW_9); 
+            otherlv_6=(Token)match(input,13,FOLLOW_9); 
 
             			newLeafNode(otherlv_6, grammarAccess.getParagraphAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalHtmlModel.g:349:3: ( (lv_content_7_0= RULE_STRING ) )
-            // InternalHtmlModel.g:350:4: (lv_content_7_0= RULE_STRING )
+            // InternalHtmlModel.g:353:3: ( (lv_content_7_0= RULE_STRING ) )
+            // InternalHtmlModel.g:354:4: (lv_content_7_0= RULE_STRING )
             {
-            // InternalHtmlModel.g:350:4: (lv_content_7_0= RULE_STRING )
-            // InternalHtmlModel.g:351:5: lv_content_7_0= RULE_STRING
+            // InternalHtmlModel.g:354:4: (lv_content_7_0= RULE_STRING )
+            // InternalHtmlModel.g:355:5: lv_content_7_0= RULE_STRING
             {
             lv_content_7_0=(Token)match(input,RULE_STRING,FOLLOW_5); 
 
@@ -789,7 +793,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,13,FOLLOW_2); 
+            otherlv_8=(Token)match(input,14,FOLLOW_2); 
 
             			newLeafNode(otherlv_8, grammarAccess.getParagraphAccess().getRightCurlyBracketKeyword_4());
             		
@@ -816,7 +820,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleReferences"
-    // InternalHtmlModel.g:375:1: entryRuleReferences returns [EObject current=null] : iv_ruleReferences= ruleReferences EOF ;
+    // InternalHtmlModel.g:379:1: entryRuleReferences returns [EObject current=null] : iv_ruleReferences= ruleReferences EOF ;
     public final EObject entryRuleReferences() throws RecognitionException {
         EObject current = null;
 
@@ -824,8 +828,8 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHtmlModel.g:375:51: (iv_ruleReferences= ruleReferences EOF )
-            // InternalHtmlModel.g:376:2: iv_ruleReferences= ruleReferences EOF
+            // InternalHtmlModel.g:379:51: (iv_ruleReferences= ruleReferences EOF )
+            // InternalHtmlModel.g:380:2: iv_ruleReferences= ruleReferences EOF
             {
              newCompositeNode(grammarAccess.getReferencesRule()); 
             pushFollow(FOLLOW_1);
@@ -852,7 +856,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleReferences"
-    // InternalHtmlModel.g:382:1: ruleReferences returns [EObject current=null] : ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' ) ;
+    // InternalHtmlModel.g:386:1: ruleReferences returns [EObject current=null] : ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' ) ;
     public final EObject ruleReferences() throws RecognitionException {
         EObject current = null;
 
@@ -866,14 +870,14 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHtmlModel.g:388:2: ( ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' ) )
-            // InternalHtmlModel.g:389:2: ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' )
+            // InternalHtmlModel.g:392:2: ( ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' ) )
+            // InternalHtmlModel.g:393:2: ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' )
             {
-            // InternalHtmlModel.g:389:2: ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' )
-            // InternalHtmlModel.g:390:3: () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}'
+            // InternalHtmlModel.g:393:2: ( () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}' )
+            // InternalHtmlModel.g:394:3: () otherlv_1= 'References' otherlv_2= '{' ( (lv_links_3_0= ruleLink ) )* otherlv_4= '}'
             {
-            // InternalHtmlModel.g:390:3: ()
-            // InternalHtmlModel.g:391:4: 
+            // InternalHtmlModel.g:394:3: ()
+            // InternalHtmlModel.g:395:4: 
             {
 
             				current = forceCreateModelElement(
@@ -887,11 +891,11 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getReferencesAccess().getReferencesKeyword_1());
             		
-            otherlv_2=(Token)match(input,12,FOLLOW_19); 
+            otherlv_2=(Token)match(input,13,FOLLOW_18); 
 
             			newLeafNode(otherlv_2, grammarAccess.getReferencesAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalHtmlModel.g:405:3: ( (lv_links_3_0= ruleLink ) )*
+            // InternalHtmlModel.g:409:3: ( (lv_links_3_0= ruleLink ) )*
             loop6:
             do {
                 int alt6=2;
@@ -904,15 +908,15 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalHtmlModel.g:406:4: (lv_links_3_0= ruleLink )
+            	    // InternalHtmlModel.g:410:4: (lv_links_3_0= ruleLink )
             	    {
-            	    // InternalHtmlModel.g:406:4: (lv_links_3_0= ruleLink )
-            	    // InternalHtmlModel.g:407:5: lv_links_3_0= ruleLink
+            	    // InternalHtmlModel.g:410:4: (lv_links_3_0= ruleLink )
+            	    // InternalHtmlModel.g:411:5: lv_links_3_0= ruleLink
             	    {
 
             	    					newCompositeNode(grammarAccess.getReferencesAccess().getLinksLinkParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_19);
+            	    pushFollow(FOLLOW_18);
             	    lv_links_3_0=ruleLink();
 
             	    state._fsp--;
@@ -940,7 +944,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,13,FOLLOW_2); 
+            otherlv_4=(Token)match(input,14,FOLLOW_2); 
 
             			newLeafNode(otherlv_4, grammarAccess.getReferencesAccess().getRightCurlyBracketKeyword_4());
             		
@@ -967,7 +971,7 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLink"
-    // InternalHtmlModel.g:432:1: entryRuleLink returns [String current=null] : iv_ruleLink= ruleLink EOF ;
+    // InternalHtmlModel.g:436:1: entryRuleLink returns [String current=null] : iv_ruleLink= ruleLink EOF ;
     public final String entryRuleLink() throws RecognitionException {
         String current = null;
 
@@ -975,8 +979,8 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalHtmlModel.g:432:44: (iv_ruleLink= ruleLink EOF )
-            // InternalHtmlModel.g:433:2: iv_ruleLink= ruleLink EOF
+            // InternalHtmlModel.g:436:44: (iv_ruleLink= ruleLink EOF )
+            // InternalHtmlModel.g:437:2: iv_ruleLink= ruleLink EOF
             {
              newCompositeNode(grammarAccess.getLinkRule()); 
             pushFollow(FOLLOW_1);
@@ -1003,59 +1007,66 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLink"
-    // InternalHtmlModel.g:439:1: ruleLink returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Item_0= ruleItem (kw= '.*' )? ) ;
+    // InternalHtmlModel.g:443:1: ruleLink returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleLink() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
+        Token this_ID_0=null;
         Token kw=null;
-        AntlrDatatypeRuleToken this_Item_0 = null;
-
+        Token this_ID_2=null;
 
 
         	enterRule();
 
         try {
-            // InternalHtmlModel.g:445:2: ( (this_Item_0= ruleItem (kw= '.*' )? ) )
-            // InternalHtmlModel.g:446:2: (this_Item_0= ruleItem (kw= '.*' )? )
+            // InternalHtmlModel.g:449:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalHtmlModel.g:450:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalHtmlModel.g:446:2: (this_Item_0= ruleItem (kw= '.*' )? )
-            // InternalHtmlModel.g:447:3: this_Item_0= ruleItem (kw= '.*' )?
+            // InternalHtmlModel.g:450:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalHtmlModel.g:451:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_19); 
 
-            			newCompositeNode(grammarAccess.getLinkAccess().getItemParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_20);
-            this_Item_0=ruleItem();
-
-            state._fsp--;
-
-
-            			current.merge(this_Item_0);
+            			current.merge(this_ID_0);
             		
 
-            			afterParserOrEnumRuleCall();
+            			newLeafNode(this_ID_0, grammarAccess.getLinkAccess().getIDTerminalRuleCall_0());
             		
-            // InternalHtmlModel.g:457:3: (kw= '.*' )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalHtmlModel.g:458:3: (kw= '.' this_ID_2= RULE_ID )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==25) ) {
-                alt7=1;
-            }
-            switch (alt7) {
-                case 1 :
-                    // InternalHtmlModel.g:458:4: kw= '.*'
-                    {
-                    kw=(Token)match(input,25,FOLLOW_2); 
+                if ( (LA7_0==25) ) {
+                    alt7=1;
+                }
 
-                    				current.merge(kw);
-                    				newLeafNode(kw, grammarAccess.getLinkAccess().getFullStopAsteriskKeyword_1());
-                    			
 
-                    }
-                    break;
+                switch (alt7) {
+            	case 1 :
+            	    // InternalHtmlModel.g:459:4: kw= '.' this_ID_2= RULE_ID
+            	    {
+            	    kw=(Token)match(input,25,FOLLOW_20); 
 
-            }
+            	    				current.merge(kw);
+            	    				newLeafNode(kw, grammarAccess.getLinkAccess().getFullStopKeyword_1_0());
+            	    			
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_19); 
+
+            	    				current.merge(this_ID_2);
+            	    			
+
+            	    				newLeafNode(this_ID_2, grammarAccess.getLinkAccess().getIDTerminalRuleCall_1_1());
+            	    			
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
 
 
             }
@@ -1079,128 +1090,8 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleLink"
 
 
-    // $ANTLR start "entryRuleItem"
-    // InternalHtmlModel.g:468:1: entryRuleItem returns [String current=null] : iv_ruleItem= ruleItem EOF ;
-    public final String entryRuleItem() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleItem = null;
-
-
-        try {
-            // InternalHtmlModel.g:468:44: (iv_ruleItem= ruleItem EOF )
-            // InternalHtmlModel.g:469:2: iv_ruleItem= ruleItem EOF
-            {
-             newCompositeNode(grammarAccess.getItemRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleItem=ruleItem();
-
-            state._fsp--;
-
-             current =iv_ruleItem.getText(); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleItem"
-
-
-    // $ANTLR start "ruleItem"
-    // InternalHtmlModel.g:475:1: ruleItem returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
-    public final AntlrDatatypeRuleToken ruleItem() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token this_ID_0=null;
-        Token kw=null;
-        Token this_ID_2=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalHtmlModel.g:481:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalHtmlModel.g:482:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            {
-            // InternalHtmlModel.g:482:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalHtmlModel.g:483:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
-            {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_21); 
-
-            			current.merge(this_ID_0);
-            		
-
-            			newLeafNode(this_ID_0, grammarAccess.getItemAccess().getIDTerminalRuleCall_0());
-            		
-            // InternalHtmlModel.g:490:3: (kw= '.' this_ID_2= RULE_ID )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
-
-                if ( (LA8_0==26) ) {
-                    alt8=1;
-                }
-
-
-                switch (alt8) {
-            	case 1 :
-            	    // InternalHtmlModel.g:491:4: kw= '.' this_ID_2= RULE_ID
-            	    {
-            	    kw=(Token)match(input,26,FOLLOW_22); 
-
-            	    				current.merge(kw);
-            	    				newLeafNode(kw, grammarAccess.getItemAccess().getFullStopKeyword_1_0());
-            	    			
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_21); 
-
-            	    				current.merge(this_ID_2);
-            	    			
-
-            	    				newLeafNode(this_ID_2, grammarAccess.getItemAccess().getIDTerminalRuleCall_1_1());
-            	    			
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleItem"
-
-
     // $ANTLR start "ruleBasicColors"
-    // InternalHtmlModel.g:508:1: ruleBasicColors returns [Enumerator current=null] : ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) ) ;
+    // InternalHtmlModel.g:476:1: ruleBasicColors returns [Enumerator current=null] : ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) ) ;
     public final Enumerator ruleBasicColors() throws RecognitionException {
         Enumerator current = null;
 
@@ -1213,47 +1104,47 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalHtmlModel.g:514:2: ( ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) ) )
-            // InternalHtmlModel.g:515:2: ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) )
+            // InternalHtmlModel.g:482:2: ( ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) ) )
+            // InternalHtmlModel.g:483:2: ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) )
             {
-            // InternalHtmlModel.g:515:2: ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) )
-            int alt9=4;
+            // InternalHtmlModel.g:483:2: ( (enumLiteral_0= 'black' ) | (enumLiteral_1= 'red' ) | (enumLiteral_2= 'blue' ) | (enumLiteral_3= 'green' ) )
+            int alt8=4;
             switch ( input.LA(1) ) {
+            case 26:
+                {
+                alt8=1;
+                }
+                break;
             case 27:
                 {
-                alt9=1;
+                alt8=2;
                 }
                 break;
             case 28:
                 {
-                alt9=2;
+                alt8=3;
                 }
                 break;
             case 29:
                 {
-                alt9=3;
-                }
-                break;
-            case 30:
-                {
-                alt9=4;
+                alt8=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // InternalHtmlModel.g:516:3: (enumLiteral_0= 'black' )
+                    // InternalHtmlModel.g:484:3: (enumLiteral_0= 'black' )
                     {
-                    // InternalHtmlModel.g:516:3: (enumLiteral_0= 'black' )
-                    // InternalHtmlModel.g:517:4: enumLiteral_0= 'black'
+                    // InternalHtmlModel.g:484:3: (enumLiteral_0= 'black' )
+                    // InternalHtmlModel.g:485:4: enumLiteral_0= 'black'
                     {
-                    enumLiteral_0=(Token)match(input,27,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,26,FOLLOW_2); 
 
                     				current = grammarAccess.getBasicColorsAccess().getBlackEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getBasicColorsAccess().getBlackEnumLiteralDeclaration_0());
@@ -1265,12 +1156,12 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalHtmlModel.g:524:3: (enumLiteral_1= 'red' )
+                    // InternalHtmlModel.g:492:3: (enumLiteral_1= 'red' )
                     {
-                    // InternalHtmlModel.g:524:3: (enumLiteral_1= 'red' )
-                    // InternalHtmlModel.g:525:4: enumLiteral_1= 'red'
+                    // InternalHtmlModel.g:492:3: (enumLiteral_1= 'red' )
+                    // InternalHtmlModel.g:493:4: enumLiteral_1= 'red'
                     {
-                    enumLiteral_1=(Token)match(input,28,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,27,FOLLOW_2); 
 
                     				current = grammarAccess.getBasicColorsAccess().getRedEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getBasicColorsAccess().getRedEnumLiteralDeclaration_1());
@@ -1282,12 +1173,12 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalHtmlModel.g:532:3: (enumLiteral_2= 'blue' )
+                    // InternalHtmlModel.g:500:3: (enumLiteral_2= 'blue' )
                     {
-                    // InternalHtmlModel.g:532:3: (enumLiteral_2= 'blue' )
-                    // InternalHtmlModel.g:533:4: enumLiteral_2= 'blue'
+                    // InternalHtmlModel.g:500:3: (enumLiteral_2= 'blue' )
+                    // InternalHtmlModel.g:501:4: enumLiteral_2= 'blue'
                     {
-                    enumLiteral_2=(Token)match(input,29,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,28,FOLLOW_2); 
 
                     				current = grammarAccess.getBasicColorsAccess().getBlueEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getBasicColorsAccess().getBlueEnumLiteralDeclaration_2());
@@ -1299,12 +1190,12 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalHtmlModel.g:540:3: (enumLiteral_3= 'green' )
+                    // InternalHtmlModel.g:508:3: (enumLiteral_3= 'green' )
                     {
-                    // InternalHtmlModel.g:540:3: (enumLiteral_3= 'green' )
-                    // InternalHtmlModel.g:541:4: enumLiteral_3= 'green'
+                    // InternalHtmlModel.g:508:3: (enumLiteral_3= 'green' )
+                    // InternalHtmlModel.g:509:4: enumLiteral_3= 'green'
                     {
-                    enumLiteral_3=(Token)match(input,30,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,29,FOLLOW_2); 
 
                     				current = grammarAccess.getBasicColorsAccess().getGreenEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getBasicColorsAccess().getGreenEnumLiteralDeclaration_3());
@@ -1343,25 +1234,23 @@ public class InternalHtmlModelParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000001006000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x000000000100C000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000202000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000009000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000078000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000002040L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000002000002L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000404000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000012000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x000000003C000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000004040L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000040L});
 
 }

@@ -103,19 +103,20 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cSizeKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		private final Assignment cSizeAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
-		private final RuleCall cSizeINTTerminalRuleCall_5_3_0 = (RuleCall)cSizeAssignment_5_3.eContents().get(0);
-		private final Keyword cRightParenthesisLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cParagraphsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cParagraphsParagraphParserRuleCall_7_0 = (RuleCall)cParagraphsAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final RuleCall cSizeHINTTerminalRuleCall_5_3_0 = (RuleCall)cSizeAssignment_5_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cParagraphsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cParagraphsParagraphParserRuleCall_8_0 = (RuleCall)cParagraphsAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Section:
-		//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=INT )? '){'
+		//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 		//    (paragraphs+=Paragraph)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=INT )? '){'
+		//'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 		//(paragraphs+=Paragraph)*
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -138,7 +139,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//STRING
 		public RuleCall getTitleSTRINGTerminalRuleCall_4_0() { return cTitleSTRINGTerminalRuleCall_4_0; }
 		
-		//(',' 'size' '=' size=INT )?
+		//(',' 'size' '=' size=HINT )?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//','
@@ -150,23 +151,26 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//'='
 		public Keyword getEqualsSignKeyword_5_2() { return cEqualsSignKeyword_5_2; }
 		
-		//size=INT
+		//size=HINT
 		public Assignment getSizeAssignment_5_3() { return cSizeAssignment_5_3; }
 		
-		//INT
-		public RuleCall getSizeINTTerminalRuleCall_5_3_0() { return cSizeINTTerminalRuleCall_5_3_0; }
+		//HINT
+		public RuleCall getSizeHINTTerminalRuleCall_5_3_0() { return cSizeHINTTerminalRuleCall_5_3_0; }
 		
-		//'){'
-		public Keyword getRightParenthesisLeftCurlyBracketKeyword_6() { return cRightParenthesisLeftCurlyBracketKeyword_6; }
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 		
 		//(paragraphs+=Paragraph)*
-		public Assignment getParagraphsAssignment_7() { return cParagraphsAssignment_7; }
+		public Assignment getParagraphsAssignment_8() { return cParagraphsAssignment_8; }
 		
 		//Paragraph
-		public RuleCall getParagraphsParagraphParserRuleCall_7_0() { return cParagraphsParagraphParserRuleCall_7_0; }
+		public RuleCall getParagraphsParagraphParserRuleCall_8_0() { return cParagraphsParagraphParserRuleCall_8_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class ParagraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Paragraph");
@@ -273,31 +277,12 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	public class LinkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Link");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cItemParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Link:
-		//    Item '.*'?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Item '.*'?
-		public Group getGroup() { return cGroup; }
-		
-		//Item
-		public RuleCall getItemParserRuleCall_0() { return cItemParserRuleCall_0; }
-		
-		//'.*'?
-		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
-	}
-	public class ItemElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Item");
-		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//Item:
+		//Link:
 		//    ID('.' ID)*;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -369,7 +354,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final ParagraphElements pParagraph;
 	private final ReferencesElements pReferences;
 	private final LinkElements pLink;
-	private final ItemElements pItem;
+	private final TerminalRule tHINT;
 	private final BasicColorsElements eBasicColors;
 	
 	private final Grammar grammar;
@@ -387,7 +372,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pParagraph = new ParagraphElements();
 		this.pReferences = new ReferencesElements();
 		this.pLink = new LinkElements();
-		this.pItem = new ItemElements();
+		this.tHINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.HINT");
 		this.eBasicColors = new BasicColorsElements();
 	}
 	
@@ -442,7 +427,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Section:
-	//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=INT )? '){'
+	//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 	//    (paragraphs+=Paragraph)*
 	//    '}';
 	public SectionElements getSectionAccess() {
@@ -478,7 +463,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	}
 	
 	//Link:
-	//    Item '.*'?;
+	//    ID('.' ID)*;
 	public LinkElements getLinkAccess() {
 		return pLink;
 	}
@@ -487,14 +472,9 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		return getLinkAccess().getRule();
 	}
 	
-	//Item:
-	//    ID('.' ID)*;
-	public ItemElements getItemAccess() {
-		return pItem;
-	}
-	
-	public ParserRule getItemRule() {
-		return getItemAccess().getRule();
+	//terminal HINT returns ecore::EInt: ('1'..'6');
+	public TerminalRule getHINTRule() {
+		return tHINT;
 	}
 	
 	//enum BasicColors:

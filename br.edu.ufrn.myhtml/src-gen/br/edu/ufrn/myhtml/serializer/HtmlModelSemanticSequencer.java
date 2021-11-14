@@ -124,7 +124,7 @@ public class HtmlModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Section returns Section
 	 *
 	 * Constraint:
-	 *     (title=STRING size=INT? paragraphs+=Paragraph*)
+	 *     (title=STRING size=HINT? paragraphs+=Paragraph*)
 	 * </pre>
 	 */
 	protected void sequence_Section(ISerializationContext context, Section semanticObject) {

@@ -238,9 +238,9 @@ ruleSection returns [EObject current=null]
 			}
 			(
 				(
-					lv_size_8_0=RULE_INT
+					lv_size_8_0=RULE_HINT
 					{
-						newLeafNode(lv_size_8_0, grammarAccess.getSectionAccess().getSizeINTTerminalRuleCall_5_3_0());
+						newLeafNode(lv_size_8_0, grammarAccess.getSectionAccess().getSizeHINTTerminalRuleCall_5_3_0());
 					}
 					{
 						if ($current==null) {
@@ -250,21 +250,25 @@ ruleSection returns [EObject current=null]
 							$current,
 							"size",
 							lv_size_8_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"br.edu.ufrn.myhtml.HtmlModel.HINT");
 					}
 				)
 			)
 		)?
-		otherlv_9='){'
+		otherlv_9=')'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getSectionAccess().getRightParenthesisLeftCurlyBracketKeyword_6());
+			newLeafNode(otherlv_9, grammarAccess.getSectionAccess().getRightParenthesisKeyword_6());
+		}
+		otherlv_10='{'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getSectionAccess().getParagraphsParagraphParserRuleCall_8_0());
 				}
-				lv_paragraphs_10_0=ruleParagraph
+				lv_paragraphs_11_0=ruleParagraph
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSectionRule());
@@ -272,15 +276,15 @@ ruleSection returns [EObject current=null]
 					add(
 						$current,
 						"paragraphs",
-						lv_paragraphs_10_0,
+						lv_paragraphs_11_0,
 						"br.edu.ufrn.myhtml.HtmlModel.Paragraph");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_11='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_12, grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -444,61 +448,25 @@ ruleLink returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getLinkAccess().getItemParserRuleCall_0());
-		}
-		this_Item_0=ruleItem
-		{
-			$current.merge(this_Item_0);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
-		(
-			kw='.*'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getLinkAccess().getFullStopAsteriskKeyword_1());
-			}
-		)?
-	)
-;
-
-// Entry rule entryRuleItem
-entryRuleItem returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getItemRule()); }
-	iv_ruleItem=ruleItem
-	{ $current=$iv_ruleItem.current.getText(); }
-	EOF;
-
-// Rule Item
-ruleItem returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
 		this_ID_0=RULE_ID
 		{
 			$current.merge(this_ID_0);
 		}
 		{
-			newLeafNode(this_ID_0, grammarAccess.getItemAccess().getIDTerminalRuleCall_0());
+			newLeafNode(this_ID_0, grammarAccess.getLinkAccess().getIDTerminalRuleCall_0());
 		}
 		(
 			kw='.'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getItemAccess().getFullStopKeyword_1_0());
+				newLeafNode(kw, grammarAccess.getLinkAccess().getFullStopKeyword_1_0());
 			}
 			this_ID_2=RULE_ID
 			{
 				$current.merge(this_ID_2);
 			}
 			{
-				newLeafNode(this_ID_2, grammarAccess.getItemAccess().getIDTerminalRuleCall_1_1());
+				newLeafNode(this_ID_2, grammarAccess.getLinkAccess().getIDTerminalRuleCall_1_1());
 			}
 		)*
 	)
@@ -546,6 +514,8 @@ ruleBasicColors returns [Enumerator current=null]
 		)
 	)
 ;
+
+RULE_HINT : '1'..'6';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
