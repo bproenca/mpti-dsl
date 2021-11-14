@@ -1,0 +1,42 @@
+grammar br.edu.ufrn.myhtml.HtmlModel with org.eclipse.xtext.common.Terminals
+
+generate htmlModel "http://www.edu.br/ufrn/myhtml/HtmlModel"
+
+
+MyHtmlModel:
+	article = Article;
+
+Article:
+	{Article} 'Article' '{'
+	(sections+=Section)*
+	references=References?
+	'}';
+	
+Section:
+    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=INT )? ')' '{'
+	(paragraphs+=Paragraph)*
+	'}';
+
+Paragraph:
+    'Paragraph' ('(' 'color' '=' color=BasicColors ')')? '{'
+    content=STRING
+    '}';
+        
+References:
+    {References} 'References' '{'
+        (links+=Link)*
+    '}';
+
+Link:
+    Item '.*'?;
+
+Item:
+    ID('.' ID)*;
+
+terminal DIGITO : '0..9'+;
+
+enum BasicColors:
+    black |
+    red |
+    blue |
+    green;
