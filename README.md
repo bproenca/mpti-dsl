@@ -19,6 +19,8 @@ Na imagem abaixo podemos ver o quão mais simples fica a escrita da DSL em compa
 
 ## Exemplo DSL
 
+![DSL Result](/images/diagram.png)
+
 ```
 Article {
 	Section (title = "Introduction to Xtext", size=1) {
