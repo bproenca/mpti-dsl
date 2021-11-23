@@ -93,7 +93,7 @@ class HtmlModelGenerator extends AbstractGenerator {
 		<h1>References:</h1>
 		<ul>
 		«FOR l : r.links»
-			<li><a href=https://«l»>«l»</a></li>
+			<li><a href=http://«l»>«l»</a></li>
 		«ENDFOR»
 		</ul>
     '''

@@ -199,7 +199,7 @@ public class HtmlModelGenerator extends AbstractGenerator {
     {
       EList<String> _links = r.getLinks();
       for(final String l : _links) {
-        _builder.append("<li><a href=https://");
+        _builder.append("<li><a href=http://");
         _builder.append(l);
         _builder.append(">");
         _builder.append(l);
