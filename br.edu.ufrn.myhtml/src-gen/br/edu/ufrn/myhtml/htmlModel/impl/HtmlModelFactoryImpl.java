@@ -69,6 +69,9 @@ public class HtmlModelFactoryImpl extends EFactoryImpl implements HtmlModelFacto
       case HtmlModelPackage.MY_HTML_MODEL: return createMyHtmlModel();
       case HtmlModelPackage.ARTICLE: return createArticle();
       case HtmlModelPackage.SECTION: return createSection();
+      case HtmlModelPackage.TABLE: return createTable();
+      case HtmlModelPackage.HEADER: return createHeader();
+      case HtmlModelPackage.ROW: return createRow();
       case HtmlModelPackage.PARAGRAPH: return createParagraph();
       case HtmlModelPackage.REFERENCES: return createReferences();
       default:
@@ -144,6 +147,42 @@ public class HtmlModelFactoryImpl extends EFactoryImpl implements HtmlModelFacto
   {
     SectionImpl section = new SectionImpl();
     return section;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Table createTable()
+  {
+    TableImpl table = new TableImpl();
+    return table;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Header createHeader()
+  {
+    HeaderImpl header = new HeaderImpl();
+    return header;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Row createRow()
+  {
+    RowImpl row = new RowImpl();
+    return row;
   }
 
   /**

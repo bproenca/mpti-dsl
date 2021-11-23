@@ -5,12 +5,15 @@ package br.edu.ufrn.myhtml.htmlModel.impl;
 
 import br.edu.ufrn.myhtml.htmlModel.Article;
 import br.edu.ufrn.myhtml.htmlModel.BasicColors;
+import br.edu.ufrn.myhtml.htmlModel.Header;
 import br.edu.ufrn.myhtml.htmlModel.HtmlModelFactory;
 import br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage;
 import br.edu.ufrn.myhtml.htmlModel.MyHtmlModel;
 import br.edu.ufrn.myhtml.htmlModel.Paragraph;
 import br.edu.ufrn.myhtml.htmlModel.References;
+import br.edu.ufrn.myhtml.htmlModel.Row;
 import br.edu.ufrn.myhtml.htmlModel.Section;
+import br.edu.ufrn.myhtml.htmlModel.Table;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -48,6 +51,27 @@ public class HtmlModelPackageImpl extends EPackageImpl implements HtmlModelPacka
    * @generated
    */
   private EClass sectionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass tableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass headerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rowEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -238,6 +262,94 @@ public class HtmlModelPackageImpl extends EPackageImpl implements HtmlModelPacka
    * @generated
    */
   @Override
+  public EReference getSection_Tables()
+  {
+    return (EReference)sectionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTable()
+  {
+    return tableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTable_Header()
+  {
+    return (EReference)tableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTable_Rows()
+  {
+    return (EReference)tableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getHeader()
+  {
+    return headerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getHeader_TableHeaderData()
+  {
+    return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRow()
+  {
+    return rowEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRow_TableRowData()
+  {
+    return (EAttribute)rowEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getParagraph()
   {
     return paragraphEClass;
@@ -340,6 +452,17 @@ public class HtmlModelPackageImpl extends EPackageImpl implements HtmlModelPacka
     createEAttribute(sectionEClass, SECTION__TITLE);
     createEAttribute(sectionEClass, SECTION__SIZE);
     createEReference(sectionEClass, SECTION__PARAGRAPHS);
+    createEReference(sectionEClass, SECTION__TABLES);
+
+    tableEClass = createEClass(TABLE);
+    createEReference(tableEClass, TABLE__HEADER);
+    createEReference(tableEClass, TABLE__ROWS);
+
+    headerEClass = createEClass(HEADER);
+    createEAttribute(headerEClass, HEADER__TABLE_HEADER_DATA);
+
+    rowEClass = createEClass(ROW);
+    createEAttribute(rowEClass, ROW__TABLE_ROW_DATA);
 
     paragraphEClass = createEClass(PARAGRAPH);
     createEAttribute(paragraphEClass, PARAGRAPH__COLOR);
@@ -394,6 +517,17 @@ public class HtmlModelPackageImpl extends EPackageImpl implements HtmlModelPacka
     initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSection_Size(), ecorePackage.getEInt(), "size", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSection_Paragraphs(), this.getParagraph(), null, "paragraphs", null, 0, -1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSection_Tables(), this.getTable(), null, "tables", null, 0, -1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTable_Header(), this.getHeader(), null, "header", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTable_Rows(), this.getRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHeader_TableHeaderData(), ecorePackage.getEString(), "tableHeaderData", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRow_TableRowData(), ecorePackage.getEString(), "tableRowData", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParagraph_Color(), this.getBasicColors(), "color", null, 0, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

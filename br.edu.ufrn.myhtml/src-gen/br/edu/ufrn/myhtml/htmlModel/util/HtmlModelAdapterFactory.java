@@ -91,6 +91,21 @@ public class HtmlModelAdapterFactory extends AdapterFactoryImpl
         return createSectionAdapter();
       }
       @Override
+      public Adapter caseTable(Table object)
+      {
+        return createTableAdapter();
+      }
+      @Override
+      public Adapter caseHeader(Header object)
+      {
+        return createHeaderAdapter();
+      }
+      @Override
+      public Adapter caseRow(Row object)
+      {
+        return createRowAdapter();
+      }
+      @Override
       public Adapter caseParagraph(Paragraph object)
       {
         return createParagraphAdapter();
@@ -163,6 +178,51 @@ public class HtmlModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.edu.ufrn.myhtml.htmlModel.Table <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.edu.ufrn.myhtml.htmlModel.Table
+   * @generated
+   */
+  public Adapter createTableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.edu.ufrn.myhtml.htmlModel.Header <em>Header</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.edu.ufrn.myhtml.htmlModel.Header
+   * @generated
+   */
+  public Adapter createHeaderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.edu.ufrn.myhtml.htmlModel.Row <em>Row</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.edu.ufrn.myhtml.htmlModel.Row
+   * @generated
+   */
+  public Adapter createRowAdapter()
   {
     return null;
   }

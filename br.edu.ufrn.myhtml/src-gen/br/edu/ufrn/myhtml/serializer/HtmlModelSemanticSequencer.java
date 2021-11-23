@@ -4,11 +4,14 @@
 package br.edu.ufrn.myhtml.serializer;
 
 import br.edu.ufrn.myhtml.htmlModel.Article;
+import br.edu.ufrn.myhtml.htmlModel.Header;
 import br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage;
 import br.edu.ufrn.myhtml.htmlModel.MyHtmlModel;
 import br.edu.ufrn.myhtml.htmlModel.Paragraph;
 import br.edu.ufrn.myhtml.htmlModel.References;
+import br.edu.ufrn.myhtml.htmlModel.Row;
 import br.edu.ufrn.myhtml.htmlModel.Section;
+import br.edu.ufrn.myhtml.htmlModel.Table;
 import br.edu.ufrn.myhtml.services.HtmlModelGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -39,6 +42,9 @@ public class HtmlModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case HtmlModelPackage.ARTICLE:
 				sequence_Article(context, (Article) semanticObject); 
 				return; 
+			case HtmlModelPackage.HEADER:
+				sequence_Header(context, (Header) semanticObject); 
+				return; 
 			case HtmlModelPackage.MY_HTML_MODEL:
 				sequence_MyHtmlModel(context, (MyHtmlModel) semanticObject); 
 				return; 
@@ -48,8 +54,14 @@ public class HtmlModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case HtmlModelPackage.REFERENCES:
 				sequence_References(context, (References) semanticObject); 
 				return; 
+			case HtmlModelPackage.ROW:
+				sequence_Row(context, (Row) semanticObject); 
+				return; 
 			case HtmlModelPackage.SECTION:
 				sequence_Section(context, (Section) semanticObject); 
+				return; 
+			case HtmlModelPackage.TABLE:
+				sequence_Table(context, (Table) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -66,6 +78,20 @@ public class HtmlModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 * </pre>
 	 */
 	protected void sequence_Article(ISerializationContext context, Article semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Header returns Header
+	 *
+	 * Constraint:
+	 *     tableHeaderData+=STRING*
+	 * </pre>
+	 */
+	protected void sequence_Header(ISerializationContext context, Header semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -121,13 +147,41 @@ public class HtmlModelSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Row returns Row
+	 *
+	 * Constraint:
+	 *     tableRowData+=STRING*
+	 * </pre>
+	 */
+	protected void sequence_Row(ISerializationContext context, Row semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Section returns Section
 	 *
 	 * Constraint:
-	 *     (title=STRING size=HINT? paragraphs+=Paragraph*)
+	 *     (title=STRING size=HINT? paragraphs+=Paragraph* tables+=Table*)
 	 * </pre>
 	 */
 	protected void sequence_Section(ISerializationContext context, Section semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Table returns Table
+	 *
+	 * Constraint:
+	 *     (header=Header rows+=Row+)
+	 * </pre>
+	 */
+	protected void sequence_Table(ISerializationContext context, Table semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

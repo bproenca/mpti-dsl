@@ -6,6 +6,7 @@ package br.edu.ufrn.myhtml.htmlModel.impl;
 import br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage;
 import br.edu.ufrn.myhtml.htmlModel.Paragraph;
 import br.edu.ufrn.myhtml.htmlModel.Section;
+import br.edu.ufrn.myhtml.htmlModel.Table;
 
 import java.util.Collection;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.impl.SectionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.impl.SectionImpl#getSize <em>Size</em>}</li>
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.impl.SectionImpl#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link br.edu.ufrn.myhtml.htmlModel.impl.SectionImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +91,16 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
    * @ordered
    */
   protected EList<Paragraph> paragraphs;
+
+  /**
+   * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTables()
+   * @generated
+   * @ordered
+   */
+  protected EList<Table> tables;
 
   /**
    * <!-- begin-user-doc -->
@@ -182,12 +194,29 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
    * @generated
    */
   @Override
+  public EList<Table> getTables()
+  {
+    if (tables == null)
+    {
+      tables = new EObjectContainmentEList<Table>(Table.class, this, HtmlModelPackage.SECTION__TABLES);
+    }
+    return tables;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case HtmlModelPackage.SECTION__PARAGRAPHS:
         return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
+      case HtmlModelPackage.SECTION__TABLES:
+        return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -208,6 +237,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
         return getSize();
       case HtmlModelPackage.SECTION__PARAGRAPHS:
         return getParagraphs();
+      case HtmlModelPackage.SECTION__TABLES:
+        return getTables();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -233,6 +264,10 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
         getParagraphs().clear();
         getParagraphs().addAll((Collection<? extends Paragraph>)newValue);
         return;
+      case HtmlModelPackage.SECTION__TABLES:
+        getTables().clear();
+        getTables().addAll((Collection<? extends Table>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -256,6 +291,9 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
       case HtmlModelPackage.SECTION__PARAGRAPHS:
         getParagraphs().clear();
         return;
+      case HtmlModelPackage.SECTION__TABLES:
+        getTables().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -276,6 +314,8 @@ public class SectionImpl extends MinimalEObjectImpl.Container implements Section
         return size != SIZE_EDEFAULT;
       case HtmlModelPackage.SECTION__PARAGRAPHS:
         return paragraphs != null && !paragraphs.isEmpty();
+      case HtmlModelPackage.SECTION__TABLES:
+        return tables != null && !tables.isEmpty();
     }
     return super.eIsSet(featureID);
   }

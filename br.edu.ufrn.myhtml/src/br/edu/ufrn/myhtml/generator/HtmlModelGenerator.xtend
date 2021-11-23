@@ -11,6 +11,7 @@ import br.edu.ufrn.myhtml.htmlModel.MyHtmlModel
 import br.edu.ufrn.myhtml.htmlModel.Section
 import br.edu.ufrn.myhtml.htmlModel.Paragraph
 import br.edu.ufrn.myhtml.htmlModel.References
+import br.edu.ufrn.myhtml.htmlModel.Table
 
 /**
  * Generates code from your model files on save.
@@ -59,12 +60,33 @@ class HtmlModelGenerator extends AbstractGenerator {
 		«FOR p : s.paragraphs»
             «p.compile»
         «ENDFOR»
+		
+        «FOR t : s.tables»
+            «t.compile»
+        «ENDFOR»
 	'''
 
 	private def compile(Paragraph p) '''
         <p style="color: «p.color»">
         «p.content»
         </p>
+    '''
+
+	private def compile(Table t) '''
+		<table style="width:100%" border="1px">
+		<tr style="background-color:lightgray">
+	    «FOR dataHeader : t.header.tableHeaderData»
+			<th style="background-color:darkgray">«dataHeader»</th>
+		«ENDFOR»
+		</tr>
+		«FOR row : t.rows»
+		<tr>
+		    «FOR dataRow : row.tableRowData»
+		    <th>«dataRow»</th>
+    		«ENDFOR»
+		</tr>
+		«ENDFOR»
+		</table>
     '''
     
     private def compile(References r) '''

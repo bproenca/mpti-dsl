@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.Section#getTitle <em>Title</em>}</li>
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.Section#getSize <em>Size</em>}</li>
  *   <li>{@link br.edu.ufrn.myhtml.htmlModel.Section#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link br.edu.ufrn.myhtml.htmlModel.Section#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @see br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage#getSection()
@@ -82,5 +83,17 @@ public interface Section extends EObject
    * @generated
    */
   EList<Paragraph> getParagraphs();
+
+  /**
+   * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
+   * The list contents are of type {@link br.edu.ufrn.myhtml.htmlModel.Table}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tables</em>' containment reference list.
+   * @see br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage#getSection_Tables()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Table> getTables();
 
 } // Section

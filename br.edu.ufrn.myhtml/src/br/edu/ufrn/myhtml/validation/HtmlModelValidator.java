@@ -7,7 +7,9 @@ import org.eclipse.xtext.validation.Check;
 
 import br.edu.ufrn.myhtml.htmlModel.HtmlModelPackage;
 import br.edu.ufrn.myhtml.htmlModel.References;
+import br.edu.ufrn.myhtml.htmlModel.Row;
 import br.edu.ufrn.myhtml.htmlModel.Section;
+import br.edu.ufrn.myhtml.htmlModel.Table;
 
 /**
  * This class contains custom validation rules. 
@@ -33,6 +35,16 @@ public class HtmlModelValidator extends AbstractHtmlModelValidator {
 				if (refs.getLinks().get(i).equalsIgnoreCase(refs.getLinks().get(j))) {
 					error("Referências devem ser únicas", HtmlModelPackage.Literals.REFERENCES__LINKS);
 				}
+			}
+		}
+	}
+	
+	@Check
+	public void checkNumberColumns(Table table) {
+		int headerColNumber = table.getHeader().getTableHeaderData().size();
+		for (Row row : table.getRows()) {
+			if (row.getTableRowData().size() != headerColNumber) {
+				warning("Quantidade de colunas devem ser iguais", HtmlModelPackage.Literals.TABLE__HEADER);		
 			}
 		}
 	}

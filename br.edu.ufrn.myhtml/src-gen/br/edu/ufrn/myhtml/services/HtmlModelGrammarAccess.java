@@ -108,16 +108,20 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		private final Keyword cLeftCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cParagraphsAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cParagraphsParagraphParserRuleCall_8_0 = (RuleCall)cParagraphsAssignment_8.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cTablesAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cTablesTableParserRuleCall_9_0 = (RuleCall)cTablesAssignment_9.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Section:
 		//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 		//    (paragraphs+=Paragraph)*
+		//    (tables+=Table)*
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 		//(paragraphs+=Paragraph)*
+		//(tables+=Table)*
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -169,8 +173,137 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		//Paragraph
 		public RuleCall getParagraphsParagraphParserRuleCall_8_0() { return cParagraphsParagraphParserRuleCall_8_0; }
 		
+		//(tables+=Table)*
+		public Assignment getTablesAssignment_9() { return cTablesAssignment_9; }
+		
+		//Table
+		public RuleCall getTablesTableParserRuleCall_9_0() { return cTablesTableParserRuleCall_9_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+	}
+	public class TableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Table");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTableKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cHeaderAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cHeaderHeaderParserRuleCall_2_0 = (RuleCall)cHeaderAssignment_2.eContents().get(0);
+		private final Assignment cRowsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRowsRowParserRuleCall_3_0 = (RuleCall)cRowsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Table:
+		//    'Table' '{'
+		//        header = Header
+		//        (rows+=Row)+
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Table' '{'
+		//    header = Header
+		//    (rows+=Row)+
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Table'
+		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//header = Header
+		public Assignment getHeaderAssignment_2() { return cHeaderAssignment_2; }
+		
+		//Header
+		public RuleCall getHeaderHeaderParserRuleCall_2_0() { return cHeaderHeaderParserRuleCall_2_0; }
+		
+		//(rows+=Row)+
+		public Assignment getRowsAssignment_3() { return cRowsAssignment_3; }
+		
+		//Row
+		public RuleCall getRowsRowParserRuleCall_3_0() { return cRowsRowParserRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class HeaderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Header");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cHeaderAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cHeaderKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTableHeaderDataAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTableHeaderDataSTRINGTerminalRuleCall_3_0 = (RuleCall)cTableHeaderDataAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Header:
+		//    {Header} 'Header' '{'
+		//        (tableHeaderData+=STRING)*
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Header} 'Header' '{'
+		//    (tableHeaderData+=STRING)*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Header}
+		public Action getHeaderAction_0() { return cHeaderAction_0; }
+		
+		//'Header'
+		public Keyword getHeaderKeyword_1() { return cHeaderKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//(tableHeaderData+=STRING)*
+		public Assignment getTableHeaderDataAssignment_3() { return cTableHeaderDataAssignment_3; }
+		
+		//STRING
+		public RuleCall getTableHeaderDataSTRINGTerminalRuleCall_3_0() { return cTableHeaderDataSTRINGTerminalRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class RowElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Row");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRowAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cRowKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTableRowDataAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTableRowDataSTRINGTerminalRuleCall_3_0 = (RuleCall)cTableRowDataAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Row:
+		//    {Row} 'Row' '{'
+		//        (tableRowData+=STRING)*
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Row} 'Row' '{'
+		//    (tableRowData+=STRING)*
+		//'}'
+		public Group getGroup() { return cGroup; }
+		
+		//{Row}
+		public Action getRowAction_0() { return cRowAction_0; }
+		
+		//'Row'
+		public Keyword getRowKeyword_1() { return cRowKeyword_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//(tableRowData+=STRING)*
+		public Assignment getTableRowDataAssignment_3() { return cTableRowDataAssignment_3; }
+		
+		//STRING
+		public RuleCall getTableRowDataSTRINGTerminalRuleCall_3_0() { return cTableRowDataSTRINGTerminalRuleCall_3_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class ParagraphElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.edu.ufrn.myhtml.HtmlModel.Paragraph");
@@ -351,6 +484,9 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	private final MyHtmlModelElements pMyHtmlModel;
 	private final ArticleElements pArticle;
 	private final SectionElements pSection;
+	private final TableElements pTable;
+	private final HeaderElements pHeader;
+	private final RowElements pRow;
 	private final ParagraphElements pParagraph;
 	private final ReferencesElements pReferences;
 	private final LinkElements pLink;
@@ -369,6 +505,9 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 		this.pMyHtmlModel = new MyHtmlModelElements();
 		this.pArticle = new ArticleElements();
 		this.pSection = new SectionElements();
+		this.pTable = new TableElements();
+		this.pHeader = new HeaderElements();
+		this.pRow = new RowElements();
 		this.pParagraph = new ParagraphElements();
 		this.pReferences = new ReferencesElements();
 		this.pLink = new LinkElements();
@@ -429,6 +568,7 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	//Section:
 	//    'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 	//    (paragraphs+=Paragraph)*
+	//    (tables+=Table)*
 	//    '}';
 	public SectionElements getSectionAccess() {
 		return pSection;
@@ -436,6 +576,43 @@ public class HtmlModelGrammarAccess extends AbstractElementFinder.AbstractGramma
 	
 	public ParserRule getSectionRule() {
 		return getSectionAccess().getRule();
+	}
+	
+	//Table:
+	//    'Table' '{'
+	//        header = Header
+	//        (rows+=Row)+
+	//    '}';
+	public TableElements getTableAccess() {
+		return pTable;
+	}
+	
+	public ParserRule getTableRule() {
+		return getTableAccess().getRule();
+	}
+	
+	//Header:
+	//    {Header} 'Header' '{'
+	//        (tableHeaderData+=STRING)*
+	//    '}';
+	public HeaderElements getHeaderAccess() {
+		return pHeader;
+	}
+	
+	public ParserRule getHeaderRule() {
+		return getHeaderAccess().getRule();
+	}
+	
+	//Row:
+	//    {Row} 'Row' '{'
+	//        (tableRowData+=STRING)*
+	//    '}';
+	public RowElements getRowAccess() {
+		return pRow;
+	}
+	
+	public ParserRule getRowRule() {
+		return getRowAccess().getRule();
 	}
 	
 	//Paragraph:

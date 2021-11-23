@@ -161,13 +161,115 @@ public interface HtmlModelPackage extends EPackage
   int SECTION__PARAGRAPHS = 2;
 
   /**
+   * The feature id for the '<em><b>Tables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION__TABLES = 3;
+
+  /**
    * The number of structural features of the '<em>Section</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECTION_FEATURE_COUNT = 3;
+  int SECTION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.TableImpl <em>Table</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.TableImpl
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getTable()
+   * @generated
+   */
+  int TABLE = 3;
+
+  /**
+   * The feature id for the '<em><b>Header</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__HEADER = 0;
+
+  /**
+   * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE__ROWS = 1;
+
+  /**
+   * The number of structural features of the '<em>Table</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TABLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.HeaderImpl <em>Header</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.HeaderImpl
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getHeader()
+   * @generated
+   */
+  int HEADER = 4;
+
+  /**
+   * The feature id for the '<em><b>Table Header Data</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEADER__TABLE_HEADER_DATA = 0;
+
+  /**
+   * The number of structural features of the '<em>Header</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEADER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.RowImpl <em>Row</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.RowImpl
+   * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getRow()
+   * @generated
+   */
+  int ROW = 5;
+
+  /**
+   * The feature id for the '<em><b>Table Row Data</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW__TABLE_ROW_DATA = 0;
+
+  /**
+   * The number of structural features of the '<em>Row</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROW_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -177,7 +279,7 @@ public interface HtmlModelPackage extends EPackage
    * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getParagraph()
    * @generated
    */
-  int PARAGRAPH = 3;
+  int PARAGRAPH = 6;
 
   /**
    * The feature id for the '<em><b>Color</b></em>' attribute.
@@ -214,7 +316,7 @@ public interface HtmlModelPackage extends EPackage
    * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getReferences()
    * @generated
    */
-  int REFERENCES = 4;
+  int REFERENCES = 7;
 
   /**
    * The feature id for the '<em><b>Links</b></em>' attribute list.
@@ -242,7 +344,7 @@ public interface HtmlModelPackage extends EPackage
    * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getBasicColors()
    * @generated
    */
-  int BASIC_COLORS = 5;
+  int BASIC_COLORS = 8;
 
 
   /**
@@ -340,6 +442,91 @@ public interface HtmlModelPackage extends EPackage
    * @generated
    */
   EReference getSection_Paragraphs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.edu.ufrn.myhtml.htmlModel.Section#getTables <em>Tables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tables</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Section#getTables()
+   * @see #getSection()
+   * @generated
+   */
+  EReference getSection_Tables();
+
+  /**
+   * Returns the meta object for class '{@link br.edu.ufrn.myhtml.htmlModel.Table <em>Table</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Table</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Table
+   * @generated
+   */
+  EClass getTable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link br.edu.ufrn.myhtml.htmlModel.Table#getHeader <em>Header</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Header</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Table#getHeader()
+   * @see #getTable()
+   * @generated
+   */
+  EReference getTable_Header();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link br.edu.ufrn.myhtml.htmlModel.Table#getRows <em>Rows</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Rows</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Table#getRows()
+   * @see #getTable()
+   * @generated
+   */
+  EReference getTable_Rows();
+
+  /**
+   * Returns the meta object for class '{@link br.edu.ufrn.myhtml.htmlModel.Header <em>Header</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Header</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Header
+   * @generated
+   */
+  EClass getHeader();
+
+  /**
+   * Returns the meta object for the attribute list '{@link br.edu.ufrn.myhtml.htmlModel.Header#getTableHeaderData <em>Table Header Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Table Header Data</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Header#getTableHeaderData()
+   * @see #getHeader()
+   * @generated
+   */
+  EAttribute getHeader_TableHeaderData();
+
+  /**
+   * Returns the meta object for class '{@link br.edu.ufrn.myhtml.htmlModel.Row <em>Row</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Row</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Row
+   * @generated
+   */
+  EClass getRow();
+
+  /**
+   * Returns the meta object for the attribute list '{@link br.edu.ufrn.myhtml.htmlModel.Row#getTableRowData <em>Table Row Data</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Table Row Data</em>'.
+   * @see br.edu.ufrn.myhtml.htmlModel.Row#getTableRowData()
+   * @see #getRow()
+   * @generated
+   */
+  EAttribute getRow_TableRowData();
 
   /**
    * Returns the meta object for class '{@link br.edu.ufrn.myhtml.htmlModel.Paragraph <em>Paragraph</em>}'.
@@ -504,6 +691,76 @@ public interface HtmlModelPackage extends EPackage
      * @generated
      */
     EReference SECTION__PARAGRAPHS = eINSTANCE.getSection_Paragraphs();
+
+    /**
+     * The meta object literal for the '<em><b>Tables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SECTION__TABLES = eINSTANCE.getSection_Tables();
+
+    /**
+     * The meta object literal for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.TableImpl <em>Table</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.TableImpl
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getTable()
+     * @generated
+     */
+    EClass TABLE = eINSTANCE.getTable();
+
+    /**
+     * The meta object literal for the '<em><b>Header</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TABLE__HEADER = eINSTANCE.getTable_Header();
+
+    /**
+     * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TABLE__ROWS = eINSTANCE.getTable_Rows();
+
+    /**
+     * The meta object literal for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.HeaderImpl <em>Header</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.HeaderImpl
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getHeader()
+     * @generated
+     */
+    EClass HEADER = eINSTANCE.getHeader();
+
+    /**
+     * The meta object literal for the '<em><b>Table Header Data</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HEADER__TABLE_HEADER_DATA = eINSTANCE.getHeader_TableHeaderData();
+
+    /**
+     * The meta object literal for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.RowImpl <em>Row</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.RowImpl
+     * @see br.edu.ufrn.myhtml.htmlModel.impl.HtmlModelPackageImpl#getRow()
+     * @generated
+     */
+    EClass ROW = eINSTANCE.getRow();
+
+    /**
+     * The meta object literal for the '<em><b>Table Row Data</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROW__TABLE_ROW_DATA = eINSTANCE.getRow_TableRowData();
 
     /**
      * The meta object literal for the '{@link br.edu.ufrn.myhtml.htmlModel.impl.ParagraphImpl <em>Paragraph</em>}' class.

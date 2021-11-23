@@ -43,11 +43,11 @@ class HtmlModelParsingTest {
 
 	@Test
 	def testNameStartsWithCapitalWarning() {
-		val entity = parseHelper.parse('''
+		val resultado = parseHelper.parse('''
 			Article{Section(title="titulo"){}}
 		''')
 		validationTestHelper.assertWarning(
-			entity,
+			resultado,
 			HtmlModelPackage.Literals.SECTION,
 			HtmlModelValidator.INVALID_NAME, "Nome deve começar com letra maiúscula"
 		)

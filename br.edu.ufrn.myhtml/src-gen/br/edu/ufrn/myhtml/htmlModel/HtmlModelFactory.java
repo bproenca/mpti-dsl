@@ -51,6 +51,33 @@ public interface HtmlModelFactory extends EFactory
   Section createSection();
 
   /**
+   * Returns a new object of class '<em>Table</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Table</em>'.
+   * @generated
+   */
+  Table createTable();
+
+  /**
+   * Returns a new object of class '<em>Header</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Header</em>'.
+   * @generated
+   */
+  Header createHeader();
+
+  /**
+   * Returns a new object of class '<em>Row</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Row</em>'.
+   * @generated
+   */
+  Row createRow();
+
+  /**
    * Returns a new object of class '<em>Paragraph</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

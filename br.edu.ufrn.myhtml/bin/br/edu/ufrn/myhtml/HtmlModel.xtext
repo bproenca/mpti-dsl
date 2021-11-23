@@ -17,6 +17,23 @@ Article:
 Section:
     'Section' '(' 'title' '=' title=STRING (',' 'size' '=' size=HINT )? ')' '{'
 	(paragraphs+=Paragraph)*
+	(tables+=Table)*
+	'}';
+
+Table:
+	'Table' '{'
+		header = Header
+		(rows+=Row)+
+	'}';
+
+Header:
+	{Header} 'Header' '{'
+		(tableHeaderData+=STRING)*
+	'}';
+
+Row:
+	{Row} 'Row' '{'
+		(tableRowData+=STRING)*
 	'}';
 
 Paragraph:

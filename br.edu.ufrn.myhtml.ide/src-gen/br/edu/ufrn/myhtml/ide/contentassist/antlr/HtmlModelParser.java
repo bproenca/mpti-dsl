@@ -35,6 +35,9 @@ public class HtmlModelParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getArticleAccess().getGroup(), "rule__Article__Group__0");
 			builder.put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
 			builder.put(grammarAccess.getSectionAccess().getGroup_5(), "rule__Section__Group_5__0");
+			builder.put(grammarAccess.getTableAccess().getGroup(), "rule__Table__Group__0");
+			builder.put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
+			builder.put(grammarAccess.getRowAccess().getGroup(), "rule__Row__Group__0");
 			builder.put(grammarAccess.getParagraphAccess().getGroup(), "rule__Paragraph__Group__0");
 			builder.put(grammarAccess.getParagraphAccess().getGroup_1(), "rule__Paragraph__Group_1__0");
 			builder.put(grammarAccess.getReferencesAccess().getGroup(), "rule__References__Group__0");
@@ -46,6 +49,11 @@ public class HtmlModelParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSectionAccess().getTitleAssignment_4(), "rule__Section__TitleAssignment_4");
 			builder.put(grammarAccess.getSectionAccess().getSizeAssignment_5_3(), "rule__Section__SizeAssignment_5_3");
 			builder.put(grammarAccess.getSectionAccess().getParagraphsAssignment_8(), "rule__Section__ParagraphsAssignment_8");
+			builder.put(grammarAccess.getSectionAccess().getTablesAssignment_9(), "rule__Section__TablesAssignment_9");
+			builder.put(grammarAccess.getTableAccess().getHeaderAssignment_2(), "rule__Table__HeaderAssignment_2");
+			builder.put(grammarAccess.getTableAccess().getRowsAssignment_3(), "rule__Table__RowsAssignment_3");
+			builder.put(grammarAccess.getHeaderAccess().getTableHeaderDataAssignment_3(), "rule__Header__TableHeaderDataAssignment_3");
+			builder.put(grammarAccess.getRowAccess().getTableRowDataAssignment_3(), "rule__Row__TableRowDataAssignment_3");
 			builder.put(grammarAccess.getParagraphAccess().getColorAssignment_1_3(), "rule__Paragraph__ColorAssignment_1_3");
 			builder.put(grammarAccess.getParagraphAccess().getContentAssignment_3(), "rule__Paragraph__ContentAssignment_3");
 			builder.put(grammarAccess.getReferencesAccess().getLinksAssignment_3(), "rule__References__LinksAssignment_3");

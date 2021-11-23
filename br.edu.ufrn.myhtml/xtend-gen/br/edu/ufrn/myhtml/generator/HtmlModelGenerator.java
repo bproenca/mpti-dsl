@@ -7,7 +7,9 @@ import br.edu.ufrn.myhtml.htmlModel.BasicColors;
 import br.edu.ufrn.myhtml.htmlModel.MyHtmlModel;
 import br.edu.ufrn.myhtml.htmlModel.Paragraph;
 import br.edu.ufrn.myhtml.htmlModel.References;
+import br.edu.ufrn.myhtml.htmlModel.Row;
 import br.edu.ufrn.myhtml.htmlModel.Section;
+import br.edu.ufrn.myhtml.htmlModel.Table;
 import com.google.common.collect.Iterators;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -119,6 +121,16 @@ public class HtmlModelGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
+    {
+      EList<Table> _tables = s.getTables();
+      for(final Table t : _tables) {
+        _builder.append("        ");
+        CharSequence _compile_1 = this.compile(t);
+        _builder.append(_compile_1, "        ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -133,6 +145,47 @@ public class HtmlModelGenerator extends AbstractGenerator {
     _builder.append(_content);
     _builder.newLineIfNotEmpty();
     _builder.append("</p>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compile(final Table t) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<table style=\"width:100%\" border=\"1px\">");
+    _builder.newLine();
+    _builder.append("<tr style=\"background-color:lightgray\">");
+    _builder.newLine();
+    {
+      EList<String> _tableHeaderData = t.getHeader().getTableHeaderData();
+      for(final String dataHeader : _tableHeaderData) {
+        _builder.append("<th style=\"background-color:darkgray\">");
+        _builder.append(dataHeader);
+        _builder.append("</th>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</tr>");
+    _builder.newLine();
+    {
+      EList<Row> _rows = t.getRows();
+      for(final Row row : _rows) {
+        _builder.append("<tr>");
+        _builder.newLine();
+        {
+          EList<String> _tableRowData = row.getTableRowData();
+          for(final String dataRow : _tableRowData) {
+            _builder.append("    ");
+            _builder.append("<th>");
+            _builder.append(dataRow, "    ");
+            _builder.append("</th>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("</tr>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("</table>");
     _builder.newLine();
     return _builder;
   }

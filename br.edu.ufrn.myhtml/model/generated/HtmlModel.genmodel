@@ -23,6 +23,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HtmlModel.ecore#//Section/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HtmlModel.ecore#//Section/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HtmlModel.ecore#//Section/paragraphs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HtmlModel.ecore#//Section/tables"/>
+    </genClasses>
+    <genClasses ecoreClass="HtmlModel.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HtmlModel.ecore#//Table/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HtmlModel.ecore#//Table/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="HtmlModel.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HtmlModel.ecore#//Header/tableHeaderData"/>
+    </genClasses>
+    <genClasses ecoreClass="HtmlModel.ecore#//Row">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HtmlModel.ecore#//Row/tableRowData"/>
     </genClasses>
     <genClasses ecoreClass="HtmlModel.ecore#//Paragraph">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HtmlModel.ecore#//Paragraph/color"/>
