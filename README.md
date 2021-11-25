@@ -72,3 +72,12 @@ Aqui podemos ver o resuldado (renderização) do HTML escrito com a DSL:
 * `HtmlModelValidator.java` Regras de validação (errors/warnings) da linguagem
 * `HtmlModelParsingTest.xtend` Teste unitário da linguagem
 
+## Regras de validação
+
+Esse projeto de DSL possui algumas regras de validação para ajudar o usuário final na escrita de artigos:
+
+- :warning: Conteúdo de uma Section deve começar com letra maiúscula
+- :warning: Quantidade de colunas nas linhas tabela devem ser iguais
+- :no_entry: Itens (links) da referência devem ser únicos
+
+![Warning](/images/warning.png)
